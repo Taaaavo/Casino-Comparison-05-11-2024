@@ -6,12 +6,12 @@ interface Props {
 const { isLanding } = Astro.props;
 ---
 
-<header class="flex flex-col items-center justify-center bg-white md:hidden fixed z-40 w-screen shadow-md">
+<header class="flex flex-col items-center justify-center bg-[#1B1B1B] md:hidden fixed z-40 w-screen shadow-md">
   <nav class="flex w-full sm:w-[640px] md:w-[768px] px-3 sm:px-6 z-40 relative justify-between h-[80px]">
     <div class="text-lg flex gap-4 items-center">
       <a class="flex items-center gap-2" href={isLanding ? '#home-section' : 'index.html'}>
-        <img class="object-contain w-5" src="/public/assets/navbar/logo.png" alt="Logo Experience Matchup" title="Experience Matchup" />
-        <span class="text-[15px] text-[#020E3C] font-bold">Experience Matchup</span>
+        <img class="object-contain w-5" src="/public/assets/navbar/logo.png" alt="Logo [change name]" title="[change name]" />
+        <span class="text-[15px] text-white font-bold">[change name]</span>
       </a>
     </div>
 

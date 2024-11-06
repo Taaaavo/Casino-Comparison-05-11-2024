@@ -1,30 +1,26 @@
 ---
 import HeroStructure from '../components/structures/HeroStructure.astro';
+import SectionStructure from '../components/structures/SectionStructure.astro';
 ---
 
 <!-- ? Home section -->
-<div>
-  <HeroStructure sectionClasses="gradient" wrapperClasses="lg:flex-row lg:items-center pb-10 lg:justify-between">
-    <article class="flex flex-col gap-4 lg:w-6/12 lg:gap-8 lg:justify-center">
-      <div class="text-center flex flex-col gap-2">
-        <h2 class="text-blueStrong text-xl font-bold sm:text-3xl lg:text-4xl">Grab the Best Deals for</h2>
-        <h1 class="text-[#020E3C] font-Teko font-extrabold text-[34px]/[40px] tracking-wider sm:text-7xl xl:text-8xl">
-          <span class="tracking-[7px]">The Top 10</span>
-          <br />
-          <span class="text-blueLight">Brick-and-Mortar</span>
-          <br />
-          <span>Casinos in the UK</span>
-        </h1>
-      </div>
+<HeroStructure sectionClasses="bg-hero bg-hero-image relative " wrapperClasses="h-[300px] md:h-[255px] lg:h-[350px]">
+  <!-- <div class="w-full h-[15px] bg-white bottom-0 left-0 right-0 rounded-b-[100px] absolute"></div> -->
+</HeroStructure>
 
-      <a href="#top-10-section" class="flex justify-center items-center">
-        <button class="text-white bg-blueStrong py-2 w-full sm:max-w-[350px] px-8 rounded-md lg:text-[24px]/[32px] hover:scale-105 transition-all duration-200">Get your deal!</button>
-      </a>
-    </article>
+<SectionStructure idSection="home-title">
+  <article class="flex flex-col gap-3 items-center text-center">
+    <span class="text-[32px]/[36px] lg:text-[32px]/[36px] md:text-[29px]/[32px] font-semibold">Check Out Our <br class="md:hidden" /> Finest Selection Of</span>
+    <h1 class="text-[48px]/[37px] lg:text-[67px]/[61px] md:text-[60px]/[64px] font-bold">
+      The Best Casinos <br />
+      <span class="text-[32px]/[36px] lg:text-[32px]/[36px] md:text-[29px]/[32px]">in the United Kingdom</span>
+    </h1>
+  </article>
+  <p class="text-center text-xl lg:text-[24px]/[27px] md:text-[22px]/[24px]">
+    Spend an incredible night of casino and friends full of adventure and fun, and become the best outing planner in your group!
+  </p>
 
-    <article class="flex justify-center">
-      <img src="/public/assets/hero/mobile.png" alt="Hero image" class="w-full max-w-[400px] sm:max-w-[500px] md:hidden" />
-      <img src="/public/assets/hero/tablet.png" alt="Hero image" class="w-auto max-h-[500px] object-contain hidden md:flex" />
-    </article>
-  </HeroStructure>
-</div>
+  <a href="#top-10-section" class="flex justify-center items-center">
+    <button class="text-white bg-green py-2 w-full md:max-w-[300px] px-8 rounded-md lg:text-[24px]/[32px] hover:scale-105 transition-all duration-200">View all Slots Available</button>
+  </a>
+</SectionStructure>

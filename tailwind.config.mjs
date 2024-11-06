@@ -4,8 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        blueLight: '#05B2DC',
-        blueStrong: '#087CA7',
+        green: '#12692F',
       },
       fontFamily: {
         Brisbane: ['brisbane', 'sans-serif'],
