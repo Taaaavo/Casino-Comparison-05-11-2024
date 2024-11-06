@@ -1,0 +1,31 @@
+---
+import SectionStructure from '../../components/structures/SectionStructure.astro';
+import HotelCard from './hotel-card/HotelCard.astro';
+import HotelGallery from './HotelGallery.astro';
+
+import { getCollection } from 'astro:content';
+import Modal from './modal/Modal.astro';
+const casinos = await getCollection('casinos');
+---
+
+<SectionStructure idSection="top-10" wrapperClasses="items-center">
+  <article class="flex flex-col gap-3 w-full">
+    <h4 class="text-[20px]/[28px] md:text-[24px]/[34px] lg:text-[26px]/[37px] font-light text-white">About Us</h4>
+    <h2 class="font-black text-orange text-[26px]/[37px] md:text-[32px]/[46px] lg:text-[px]/[px]">The Ultimate Brick and Mortar Casino Comparison</h2>
+  </article>
+  <article class="flex flex-wrap justify-center gap-8 lg:gap-y-12">
+    {
+      casinos.map((hotel, index) => {
+        return <HotelCard hotel={hotel.data} index={index} />;
+      })
+    }
+  </article>
+</SectionStructure>
+
+{
+  casinos.map((hotel, index) => {
+    return <HotelGallery hotelID={hotel.data.hotelID} images={hotel.data.images} />;
+  })
+}
+
+<Modal />

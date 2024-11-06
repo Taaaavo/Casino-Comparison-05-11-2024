@@ -1,0 +1,33 @@
+---
+import Image from 'astro/components/Image.astro';
+import SectionStructure from '../components/structures/SectionStructure.astro';
+---
+
+<SectionStructure wrapperClasses="lg:flex-row  lg:items-center lg:justify-between" idSection="about-us">
+  <div class="flex flex-col h-full gap-5 lg:w-1/2">
+    <article class="flex flex-col gap-1">
+      <h4 class="text-[#020E3C] font-normal text-sm lg:text-base">About Us</h4>
+      <h2 class="font-bold text-[#05B2DC] text-xl md:text-2xl lg:text-3xl">Only Exclusive Offers for the Best UK Casinos</h2>
+    </article>
+
+    <article class="text-[#033860] text-sm sm:text-lg md:text-base xl:text-lg flex flex-col gap-2 md:text-start">
+      <p>
+        At Experience Matchup we thrive to provide you with the most complete virtual catalog of special deals and offers to visit the UK’s top casino venues.  Designed for both expert adventure
+        seekers and first time visitors looking for a thrilling gaming experience.
+      </p>
+
+      <p>
+        Discover each casino’s features and locations to make your gaming dreams come true. Our expert professionals have selected a wide range of special offers to meet different levels of needs and
+        preferences. From stylish casino gaming options, to fine dining services, there is something for everyone at experiencematchup.com.
+      </p>
+    </article>
+
+    <a href="#top-10-section" class="flex justify-center md:justify-start items-center h-full">
+      <button class="w-full max-w-[400px] sm:max-w-[250px] text-white bg-[#087CA7] py-2 px-8 rounded-md lg:text-lg hover:scale-105 transition-all duration-200">Explore here!</button>
+    </a>
+  </div>
+
+  <div class="hidden lg:flex justify-end lg:w-1/2">
+    <img src="/public/assets/about-us/img.png" class="w-full h-full max-w-[500px] object-cover" alt="" />
+  </div>
+</SectionStructure>

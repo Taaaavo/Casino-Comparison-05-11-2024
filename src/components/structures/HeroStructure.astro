@@ -1,0 +1,38 @@
+---
+interface Props {
+  wrapperClasses?: string;
+  sectionClasses?: string;
+}
+
+const { wrapperClasses, sectionClasses } = Astro.props;
+---
+
+<section id={`home-section`} class=`flex justify-center hero-section animate-hero ${sectionClasses}`>
+  <div
+    class={`sm:w-[640px] md:w-10/12 lg:w-[1024px] xl:w-[1280px] 2xl:w-[1400px] flex flex-col pt-[112px] lg:pt-[150px] xl:pt-[80px] w-full px-3 sm:px-6 md:px-8 gap-8 sm:gap-16 md:gap-10 ${wrapperClasses}`}
+  >
+    <slot />
+  </div>
+</section>
+
+<style>
+  #home-section {
+    min-height: max-content;
+  }
+  @media (min-width: 1524px) {
+    #home-section {
+      height: calc(100vh);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    #home-section {
+      height: calc(100vh);
+      min-height: 800px;
+    }
+  }
+
+  .gradient {
+    background: linear-gradient(180deg, #eeeceb 0%, #e5e8e9 52.18%, #ccd2d8 100%);
+  }
+</style>

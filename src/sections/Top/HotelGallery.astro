@@ -1,0 +1,60 @@
+---
+import CloseModalButton from './components/CloseModalButton';
+
+interface Props {
+  hotelID: string;
+  images: string[];
+}
+
+const { hotelID, images } = Astro.props;
+---
+
+<section id={`images-${hotelID}`} class="bg-[#00000088] font-[Inter] flex items-center justify-center min-h-screen absolute z-50 overflow-x-hidden hidden">
+  <div class="fixed inset-0 w-full bg-[#00000088] flex items-center justify-center">
+    <div class="bg-white shadow-lg w-11/12 sm:w-8/12 lg:max-w-[550px] h-auto max-h-54 rounded-lg">
+      <article class="overflow-x-hidden overflow relative flex flex-col">
+        <CloseModalButton client:load IDModal={`images-${hotelID}`} isGallery={true} />
+
+        <div class="swiper w-full" id="swiper-gallery">
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            {
+              images.map(image => {
+                return (
+                  <div class="swiper-slide">
+                    <img src={image} class="w-full h-full object-cover" alt="" title="" />
+                  </div>
+                );
+              })
+            }
+            <!-- Agrega más slides según necesites -->
+          </div>
+
+          <!-- Agrega paginación y navegación si es necesario -->
+          <div class="swiper-pagination"></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .swiper-pagination {
+    --swiper-pagination-color: #087ca7;
+    --swiper-pagination-left: auto;
+    --swiper-pagination-right: 8px;
+    --swiper-pagination-bottom: 8px;
+    --swiper-pagination-top: auto;
+    --swiper-pagination-fraction-color: inherit;
+    --swiper-pagination-progressbar-bg-color: rgba(255, 255, 255, 0.85);
+    --swiper-pagination-progressbar-size: 4px;
+    --swiper-pagination-bullet-size: 20px;
+    --swiper-pagination-bullet-width: 20px;
+    --swiper-pagination-bullet-height: 20px;
+    --swiper-pagination-bullet-inactive-color: #fff;
+    --swiper-pagination-bullet-inactive-opacity: 0.6;
+    --swiper-pagination-bullet-opacity: 1;
+    --swiper-pagination-bullet-horizontal-gap: 4px;
+    --swiper-pagination-bullet-vertical-gap: 6px;
+  }
+</style>

@@ -1,0 +1,80 @@
+{
+  "hotelID": "Genting_Casino_Glasgow",
+  "hotelName": "Genting Casino, Glasgow",
+  "tripadvisor_ranking": 3.0,
+  "mainDescription": "It is the best choice for a night out in Glasgow. The Genting Casino offers a stylish gaming experience with renowned croupier tables and the latest in slot machines as well as other electronic games. Check out regularly for special events and seasonal tournaments.",
+  "secondaryDescription": "Sip in style and have a fresh cocktail, soft drinks, gins, and more. Or try its delicious menu including stone-baked pizzas, burgers, curries, and more tasty snacks and dishes. Step inside for a mesmerizing experience attended by a pleasant and most helpful staff.",
+  "reviews": 21,
+  "mainImage": "/public/assets/hotel-cards/3.png",
+  "ribon": false,
+  "ribon_content": "",
+  "images": ["/public/assets/carousel/3-1.png", "/public/assets/carousel/3-2.png", "/public/assets/carousel/3-3.png", "/public/assets/carousel/3-4.png"],
+  "tripadvisor": "September 5, 2024",
+  "info": {
+    "address": "506/516 Sauchiehall Street, Glasgow G2 3LW, United Kingdom.",
+    "city": "Glasgow",
+    "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2238.7918590307245!2d-4.271926322569163!3d55.866277573126446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48884428c1a14c99%3A0x8f15ec16436ef9a6!2s506%2F516%2C%20506-516%20Sauchiehall%20St%2C%20Glasgow%20G2%203LW%2C%20Reino%20Unido!5e0!3m2!1ses!2smx!4v1729791364410!5m2!1ses!2smx",
+    "facilities": [
+      {
+        "title": "Food & Drink",
+        "content": [
+          "Enjoy a buzzing atmosphere at the Genting\u2019s Late Bar, or if you are craving for something delicious, its menu has a mix of fabulous flavors to suit everyone\u2019s taste buds."
+        ]
+      },
+      {
+        "title": "Rooftop",
+        "content": ["No rooftop area is available, but the private gaming rooms and opulent interiors offer a lavish experience."]
+      },
+      {
+        "title": "Live Shows",
+        "content": ["Features occasional live performances, and offers private karaoke rooms for private parties."]
+      },
+      {
+        "title": "Business Meetings",
+        "content": ["Not quite the best place for a business meeting, but the Genting provides few options for special parties."]
+      },
+      {
+        "title": "My Genting Rewards",
+        "content": ["Earn points on your visits and get exclusive benefits by joining My Genting Rewards programme."]
+      }
+    ],
+    "dressCode": "Smart casual is fine, and jeans and smart trainers are acceptable. However, football shirts, muscle/vest tops are not allowed. Caps and other hats are also not allowed for the security and safety of the casinos\u2019 guests.",
+    "ageRestrictions": "Guests must be 18 or older, adhering to strict UK laws.",
+    "availableGames": {
+      "tableGames": ["Roulette", "Blackjack", "Baccarat", "Poker"],
+      "electronicCasinoGames": ["Slots", "Electronic Roulette"]
+    }
+  },
+  "packages": {
+    "price": {
+      "standard": 699,
+      "premium": 1299,
+      "vip": 1999
+    },
+    "airportTransfer": {
+      "standard": false,
+      "premium": true,
+      "vip": true
+    },
+    "breakfast": {
+      "standard": true,
+      "premium": true,
+      "vip": true
+    },
+    "lunch": {
+      "standard": false,
+      "premium": false,
+      "vip": true
+    },
+    "dinner": {
+      "standard": false,
+      "premium": true,
+      "vip": true
+    },
+    "vipArea": {
+      "standard": false,
+      "premium": false,
+      "vip": true
+    }
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "hotelID": "Les_Ambassadeurs_Club",
+  "hotelName": "Les Ambassadeurs Club",
+  "tripadvisor_ranking": 5.0,
+  "mainDescription": "Les Ambassadeurs offers their guests and members a service of flawless quality, located in one of the finest Georgian properties in Mayfair. Furnished with opulent private rooms and luxury facilities, the club continues to welcome players from all over the world who are seeking the ultimate gaming and fine dining experiences.",
+  "secondaryDescription": "For over 100 years, the main luxury gaming floor within Les Ambassadeurs has played host to Royals and celebrities alike. The unrivaled benefits of the Club are worth its membership.",
+  "reviews": 239,
+  "mainImage": "/public/assets/hotel-cards/1.png",
+  "ribon": true,
+  "ribon_content": "Finest Choice!",
+  "images": ["/public/assets/carousel/1-1.png", "/public/assets/carousel/1-2.png", "/public/assets/carousel/1-3.png", "/public/assets/carousel/1-4.png"],
+  "tripadvisor": "September 19, 2024",
+  "info": {
+    "address": "5 Hamilton Place, Mayfair, London W1J 7ED United Kingdom",
+    "city": "London",
+    "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.480066647155!2d-0.1529604227787512!3d51.504408071812605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4876052f87702a41%3A0x40f1c333cd54b2ab!2s5%20Hamilton%20Pl%2C%20London%20W1J%207ED%2C%20Reino%20Unido!5e0!3m2!1ses!2smx!4v1729791228569!5m2!1ses!2smx",
+    "facilities": [
+      {
+        "title": "Food & Drink",
+        "content": ["Les Ambassadeurs\u2019 restaurant boasts European, Middle Eastern, Chinese, Indian cuisines, each presented to perfection through a variety of delectable dishes."]
+      },
+      {
+        "title": "Rooftop",
+        "content": [
+          "Although the Club lacks a rooftop area, its smoking garden offers its members an exclusive outdoor gaming area in an al-fresco environment in its own corner of Park Lane, Mayfair."
+        ]
+      },
+      {
+        "title": "Live Shows",
+        "content": ["Being a top-notch private venue, the Club does not host live shows, instead it offers members the chance to attend high profile events."]
+      },
+      {
+        "title": "Business Meetings",
+        "content": ["The luxury rooms and halls of Les Ambassadeurs are perfect for small private meetings for members, but it doesn\u2019t provide business packages."]
+      },
+      {
+        "title": "Membership",
+        "content": ["Les Ambassadeurs\u2019 membership is the only way to unlock the exclusive benefits and access the Club\u2019s features and top services."]
+      }
+    ],
+    "dressCode": "With the standards being so high because of Les Ambassadeurs\u2019 history, members are expected to dress smart. A Jacket and a tie are the expected attire for men when entering the casino.",
+    "ageRestrictions": "Due to very strict UK licensing laws, you must be 18 or over without exception to enter the Club.",
+    "availableGames": {
+      "tableGames": ["Roulette", "Baccarat", "Blackjack", "Three Card Poker"]
+    }
+  },
+  "packages": {
+    "price": {
+      "standard": 841,
+      "premium": 1791,
+      "vip": 2891
+    },
+    "airportTransfer": {
+      "standard": false,
+      "premium": true,
+      "vip": true
+    },
+    "breakfast": {
+      "standard": true,
+      "premium": true,
+      "vip": true
+    },
+    "lunch": {
+      "standard": false,
+      "premium": false,
+      "vip": true
+    },
+    "dinner": {
+      "standard": false,
+      "premium": true,
+      "vip": true
+    },
+    "vipArea": {
+      "standard": false,
+      "premium": false,
+      "vip": true
+    }
+  }
+}

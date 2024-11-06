@@ -1,0 +1,335 @@
+---
+import { z } from 'zod';
+import { HotelSchema } from '../../../../d';
+import ToogleButtons from './components/info-tab/ToogleButtons.tsx';
+import SwiperPricing from './components/info-tab/SwiperPricing.astro';
+import OpenBookingButton from './components/info-tab/OpenBookingButton.tsx';
+
+type Hotel = z.infer<typeof HotelSchema>;
+
+interface Props {
+  hotel: Hotel;
+  index: number;
+}
+
+const { hotel, index } = Astro.props;
+---
+
+<div id={`info-modal-section-${hotel.hotelID}`} class="block hidden info-modal">
+  <div class="w-full mt-2">
+    <h2 class="px-4 py-2 font-semibold text-ellipsis overflow-hidden text-wrap lg:text-[20px] lg:px-7 xl:text-[22px]">{`${index + 1}. ${hotel.hotelName}`}</h2>
+  </div>
+
+  <article class="p-5 flex flex-col">
+    <div class="flex flex-col 2xl:flex-row items-start 2xl:justify-between 2xl:items-center w-full mb-10">
+      <div class="flex gap-1">
+        <ToogleButtons client:load hotelID={hotel.hotelID} />
+      </div>
+
+      <span class="text-xs font-light lg:text-sm mt-2">Prices are per person per night, with a minimum occupancy of 2 people and maximum of 4 per room.</span>
+    </div>
+
+    <!-- Tab info -->
+    <div id={`tab-info-${hotel.hotelID}`}>
+      <div class={`lg:flex flex-row gap-8 overflow-y-scroll lg:overflow-y-hidden transition-opacity duration-1000 tab-content`}>
+        <div class="text-sm flex flex-col gap-2 lg:w-6/12">
+          <h3 class="font-semibold md:text-[18px]">Location</h3>
+          <p class="text-justify text-black md:text-[15px] font-light">{hotel.info.address}</p>
+          <iframe src={hotel.info.map} class="w-full h-[200px] sm:h-[250px] md:h-[280px]" style={{ border: 0 }} allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <div class="overflow lg:overflow-y-auto h-20 lg:h-96 lg:w-6/12">
+          <article class="text-sm flex flex-col gap-2 mt-2">
+            <h5 class="font-semibold md:text-[18px]">Facilities</h5>
+            {
+              hotel.info.facilities.map(facility => (
+                <div class="flex flex-col gap-1 font-light">
+                  <h6 class="md:text-[16px]">{facility.title}</h6>
+                  <ul class="list-disc ml-5">
+                    {facility.content.map(item => (
+                      <li class="text-black md:text-[15px]">{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))
+            }
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab pricing -->
+    <div class="hidden" id={`tab-pricing-${hotel.hotelID}`}>
+      <div class={`lg:flex flex-row gap-8 overflow-y-scroll lg:overflow-y-hidden transition-opacity duration-1000 tab-content`}>
+        <!-- Mobile -->
+        <div class="h-max max-w-max px-3 lg:px-0 lg:hidden">
+          <SwiperPricing hotel={hotel} index={index} />
+        </div>
+
+        <!-- Desktop -->
+        <div class="hidden lg:flex justify-center gap-6 2xl:gap-16 self-center w-full py-4 bg-[#FAFAFA] rounded-xl">
+          <div class="flex flex-col gap-4">
+            <h5 class="text-start text-base font-semibold sm:text-lg md:text-xl">Specs</h5>
+
+            <ul class="flex flex-col gap-4 items-start text-sm sm:text-base md:text-lg">
+              <li class="h-[30px] flex items-center">
+                <span>Price</span>
+              </li>
+
+              <li class="flex gap-2 h-[30px] hover:cursor-pointer items-center">
+                <span class="">AirPort Transfers</span>
+                <div class="relative group">
+                  <img
+                    class="w-4 h-4 object-contain"
+                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjQzg1NTNEIiBkPSJNMTEgMTdoMnYtNmgtMnptMS04cS40MjUgMCAuNzEzLS4yODhUMTMgOHQtLjI4OC0uNzEyVDEyIDd0LS43MTIuMjg4VDExIDh0LjI4OC43MTNUMTIgOW0wIDEzcS0yLjA3NSAwLTMuOS0uNzg4dC0zLjE3NS0yLjEzN1QyLjc4OCAxNS45VDIgMTJ0Ljc4OC0zLjl0Mi4xMzctMy4xNzVUOC4xIDIuNzg4VDEyIDJ0My45Ljc4OHQzLjE3NSAyLjEzN1QyMS4yMTMgOC4xVDIyIDEydC0uNzg4IDMuOXQtMi4xMzcgMy4xNzV0LTMuMTc1IDIuMTM4VDEyIDIyIi8+PC9zdmc+"
+                    alt="info"
+                  />
+                  <div class="absolute hidden w-[200px] text-center group-hover:flex right-0 top-10 flex-col items-center gap-2 bg-white shadow-lg rounded-t-xl px-3 py-4">
+                    <span class="text-xs md:text-sm font-bold">Airport Transfers information</span>
+
+                    <p class="text-xs md:text-sm">The service is provided for transportation both from the airport to the casino and from the casino to the airport.</p>
+                  </div>
+                </div>
+              </li>
+
+              <li class="h-[30px] flex items-center">
+                <span>Breakfast</span>
+              </li>
+
+              <li class="h-[30px] flex items-center">
+                <span>Lunch</span>
+              </li>
+
+              <li class="h-[30px] flex items-center">
+                <span>Dinner</span>
+              </li>
+
+              <li class="flex gap-2 h-[30px] hover:cursor-pointer items-center">
+                <span>Access to VIP Area</span>
+                <div class="relative group">
+                  <img
+                    class="w-4 h-4 object-contain"
+                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjQzg1NTNEIiBkPSJNMTEgMTdoMnYtNmgtMnptMS04cS40MjUgMCAuNzEzLS4yODhUMTMgOHQtLjI4OC0uNzEyVDEyIDd0LS43MTIuMjg4VDExIDh0LjI4OC43MTNUMTIgOW0wIDEzcS0yLjA3NSAwLTMuOS0uNzg4dC0zLjE3NS0yLjEzN1QyLjc4OCAxNS45VDIgMTJ0Ljc4OC0zLjl0Mi4xMzctMy4xNzVUOC4xIDIuNzg4VDEyIDJ0My45Ljc4OHQzLjE3NSAyLjEzN1QyMS4yMTMgOC4xVDIyIDEydC0uNzg4IDMuOXQtMi4xMzcgMy4xNzV0LTMuMTc1IDIuMTM4VDEyIDIyIi8+PC9zdmc+"
+                    alt="info"
+                  />
+                  <div class="absolute hidden w-[200px] text-center group-hover:flex bottom-0 right-0 flex-col items-center gap-2 bg-white shadow-lg rounded-t-xl px-3 py-4">
+                    <span class="text-xs md:text-sm font-bold">VIP Area Information</span>
+
+                    <p class="text-xs md:text-sm">For more information about specific perks, please contact us, as VIP area offerings vary between casinos.</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="flex flex-col gap-4">
+            <h5 class="text-center text-base font-semibold sm:text-lg md:text-xl">Standard</h5>
+
+            <ul class="flex flex-col gap-4 items-start justify-center text-sm sm:text-base md:text-lg">
+              <li class="h-[30px] flex justify-center items-center w-full">
+                <span>{`$${hotel.packages.price.standard.toLocaleString()}`}</span>
+              </li>
+
+              <li class="h-[30px] flex justify-center items-center w-full">
+                <div>
+                  <img
+                    class="w-5 h-5 object-contain"
+                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiMyMTI0MjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJtNyA3bDEwIDEwTTcgMTdMMTcgNyIvPjwvc3ZnPg=="
+                    alt="Not included icon"
+                    title="Not included"
+                  />
+                </div>
+              </li>
+
+              <li class="h-[30px] flex justify-center items-center w-full">
+                <div>
+                  <img
+                    class="w-5 h-5 object-contain"
+                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjMjEyNDI3IiBkPSJNMTguNzEgNy4yMWExIDEgMCAwIDAtMS40MiAwbC03LjQ1IDcuNDZsLTMuMTMtMy4xNEExIDEgMCAxIDAgNS4yOSAxM2wzLjg0IDMuODRhMSAxIDAgMCAwIDEuNDIgMGw4LjE2LTguMTZhMSAxIDAgMCAwIDAtMS40NyIvPjwvc3ZnPg=="
+                    alt="Included icon"
+                    title="Included"
+                  />
+                </div>
+              </li>
+
+              <li class="h-[30px] flex justify-center items-center w-full">
+                <div>
+                  <img
+                    class="w-5 h-5 object-contain"
+                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiMyMTI0MjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJtNyA3bDEwIDEwTTcgMTdMMTcgNyIvPjwvc3ZnPg=="
+                    alt="Not included icon"
+                    title="Not included"
+                  />
+                </div>
+              </li>
+
+              <li class="h-[30px] flex justify-center items-center w-full">
+                <div>
+                  <img
+                    class="w-5 h-5 object-contain"
+                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiMyMTI0MjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJtNyA3bDEwIDEwTTcgMTdMMTcgNyIvPjwvc3ZnPg=="
+                    alt="Not included icon"
+                    title="Not included"
+                  />
+                </div>
+              </li>
+
+              <li class="h-[30px] flex justify-center items-center w-full">
+                <div>
+                  <img
+                    class="w-5 h-5 object-contain"
+                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiMyMTI0MjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJtNyA3bDEwIDEwTTcgMTdMMTcgNyIvPjwvc3ZnPg=="
+                    alt="Not included icon"
+                    title="Not included"
+                  />
+                </div>
+              </li>
+
+              <li>
+                <OpenBookingButton client:load hotelID={hotel.hotelID} packageID="standard" packagesPrices={hotel.packages.price} hotelName={`${index + 1}. ${hotel.hotelName}`} />
+              </li>
+            </ul>
+          </div>
+
+          <div class="flex flex-col gap-4">
+            <h5 class="text-center text-base font-semibold sm:text-lg md:text-xl">Premium</h5>
+
+            <ul class="flex flex-col gap-4 items-start text-sm sm:text-base md:text-lg">
+              <li class="h-[30px] flex justify-center items-center w-full">
+                <span>{`$${hotel.packages.price.premium.toLocaleString()}`}</span>
+              </li>
+
+              <li class="h-[30px] flex justify-center items-center w-full">
+                <div>
+                  <img
+                    class="w-5 h-5 object-contain"
+                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjMjEyNDI3IiBkPSJNMTguNzEgNy4yMWExIDEgMCAwIDAtMS40MiAwbC03LjQ1IDcuNDZsLTMuMTMtMy4xNEExIDEgMCAxIDAgNS4yOSAxM2wzLjg0IDMuODRhMSAxIDAgMCAwIDEuNDIgMGw4LjE2LTguMTZhMSAxIDAgMCAwIDAtMS40NyIvPjwvc3ZnPg=="
+                    alt="Included icon"
+                    title="Included"
+                  />
+                </div>
+              </li>
+
+              <li class="h-[30px] flex justify-center items-center w-full">
+                <div>
+                  <img
+                    class="w-5 h-5 object-contain"
+                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjMjEyNDI3IiBkPSJNMTguNzEgNy4yMWExIDEgMCAwIDAtMS40MiAwbC03LjQ1IDcuNDZsLTMuMTMtMy4xNEExIDEgMCAxIDAgNS4yOSAxM2wzLjg0IDMuODRhMSAxIDAgMCAwIDEuNDIgMGw4LjE2LTguMTZhMSAxIDAgMCAwIDAtMS40NyIvPjwvc3ZnPg=="
+                    alt="Included icon"
+                    title="Included"
+                  />
+                </div>
+              </li>
+
+              <li class="h-[30px] flex justify-center items-center w-full">
+                <div>
+                  <img
+                    class="w-5 h-5 object-contain"
+                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiMyMTI0MjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJtNyA3bDEwIDEwTTcgMTdMMTcgNyIvPjwvc3ZnPg=="
+                    alt="Not included icon"
+                    title="Not included"
+                  />
+                </div>
+              </li>
+
+              <li class="h-[30px] flex justify-center items-center w-full">
+                <div>
+                  <img
+                    class="w-5 h-5 object-contain"
+                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjMjEyNDI3IiBkPSJNMTguNzEgNy4yMWExIDEgMCAwIDAtMS40MiAwbC03LjQ1IDcuNDZsLTMuMTMtMy4xNEExIDEgMCAxIDAgNS4yOSAxM2wzLjg0IDMuODRhMSAxIDAgMCAwIDEuNDIgMGw4LjE2LTguMTZhMSAxIDAgMCAwIDAtMS40NyIvPjwvc3ZnPg=="
+                    alt="Included icon"
+                    title="Included"
+                  />
+                </div>
+              </li>
+
+              <li class="h-[30px] flex justify-center items-center w-full">
+                <div>
+                  <img
+                    class="w-5 h-5 object-contain"
+                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiMyMTI0MjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJtNyA3bDEwIDEwTTcgMTdMMTcgNyIvPjwvc3ZnPg=="
+                    alt="Not included icon"
+                    title="Not included"
+                  />
+                </div>
+              </li>
+
+              <li>
+                <OpenBookingButton client:load hotelID={hotel.hotelID} packageID="premium" packagesPrices={hotel.packages.price} hotelName={`${index + 1}. ${hotel.hotelName}`} />
+              </li>
+            </ul>
+          </div>
+
+          <div class="flex flex-col gap-4">
+            <h5 class="text-center text-base font-semibold sm:text-lg md:text-xl">VIP</h5>
+
+            <ul class="flex flex-col gap-4 items-start text-sm sm:text-base md:text-lg">
+              <li class="h-[30px] flex justify-center items-center w-full">
+                <span>{`$${hotel.packages.price.vip.toLocaleString()}`}</span>
+              </li>
+
+              <li class="h-[30px] flex justify-center items-center w-full">
+                <div>
+                  <img
+                    class="w-5 h-5 object-contain"
+                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjMjEyNDI3IiBkPSJNMTguNzEgNy4yMWExIDEgMCAwIDAtMS40MiAwbC03LjQ1IDcuNDZsLTMuMTMtMy4xNEExIDEgMCAxIDAgNS4yOSAxM2wzLjg0IDMuODRhMSAxIDAgMCAwIDEuNDIgMGw4LjE2LTguMTZhMSAxIDAgMCAwIDAtMS40NyIvPjwvc3ZnPg=="
+                    alt="Included icon"
+                    title="Included"
+                  />
+                </div>
+              </li>
+
+              <li class="h-[30px] flex justify-center items-center w-full">
+                <div>
+                  <img
+                    class="w-5 h-5 object-contain"
+                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjMjEyNDI3IiBkPSJNMTguNzEgNy4yMWExIDEgMCAwIDAtMS40MiAwbC03LjQ1IDcuNDZsLTMuMTMtMy4xNEExIDEgMCAxIDAgNS4yOSAxM2wzLjg0IDMuODRhMSAxIDAgMCAwIDEuNDIgMGw4LjE2LTguMTZhMSAxIDAgMCAwIDAtMS40NyIvPjwvc3ZnPg=="
+                    alt="Included icon"
+                    title="Included"
+                  />
+                </div>
+              </li>
+
+              <li class="h-[30px] flex justify-center items-center w-full">
+                <div>
+                  <img
+                    class="w-5 h-5 object-contain"
+                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjMjEyNDI3IiBkPSJNMTguNzEgNy4yMWExIDEgMCAwIDAtMS40MiAwbC03LjQ1IDcuNDZsLTMuMTMtMy4xNEExIDEgMCAxIDAgNS4yOSAxM2wzLjg0IDMuODRhMSAxIDAgMCAwIDEuNDIgMGw4LjE2LTguMTZhMSAxIDAgMCAwIDAtMS40NyIvPjwvc3ZnPg=="
+                    alt="Included icon"
+                    title="Included"
+                  />
+                </div>
+              </li>
+
+              <li class="h-[30px] flex justify-center items-center w-full">
+                <div>
+                  <img
+                    class="w-5 h-5 object-contain"
+                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjMjEyNDI3IiBkPSJNMTguNzEgNy4yMWExIDEgMCAwIDAtMS40MiAwbC03LjQ1IDcuNDZsLTMuMTMtMy4xNEExIDEgMCAxIDAgNS4yOSAxM2wzLjg0IDMuODRhMSAxIDAgMCAwIDEuNDIgMGw4LjE2LTguMTZhMSAxIDAgMCAwIDAtMS40NyIvPjwvc3ZnPg=="
+                    alt="Included icon"
+                    title="Included"
+                  />
+                </div>
+              </li>
+
+              <li class="h-[30px] flex justify-center items-center w-full">
+                <div>
+                  <img
+                    class="w-5 h-5 object-contain"
+                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjMjEyNDI3IiBkPSJNMTguNzEgNy4yMWExIDEgMCAwIDAtMS40MiAwbC03LjQ1IDcuNDZsLTMuMTMtMy4xNEExIDEgMCAxIDAgNS4yOSAxM2wzLjg0IDMuODRhMSAxIDAgMCAwIDEuNDIgMGw4LjE2LTguMTZhMSAxIDAgMCAwIDAtMS40NyIvPjwvc3ZnPg=="
+                    alt="Included icon"
+                    title="Included"
+                  />
+                </div>
+              </li>
+
+              <li>
+                <OpenBookingButton client:load hotelID={hotel.hotelID} packageID="vip" packagesPrices={hotel.packages.price} hotelName={`${index + 1}. ${hotel.hotelName}`} />
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+</div>

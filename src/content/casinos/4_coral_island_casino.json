@@ -1,0 +1,80 @@
+{
+  "hotelID": "Coral_Island_Casino",
+  "hotelName": "Coral Island Casino",
+  "tripadvisor_ranking": 4.0,
+  "mainDescription": "It is simply the ultimate casino experience in Blackpool, and the only one in town that does not require a membership to enter. The Coral Island Casino and its exhilarating vibe boasts live table American Roulette, Blackjack, and slots full of stakes and prizes.",
+  "secondaryDescription": "The Coral Island Casino is one of the few venues with 5 restaurants to delight guests with tables open to the public and their families. There is certainly something for everyone, whether you are having fun at the casino, or just for your closest friends dining delight.",
+  "reviews": 2552,
+  "mainImage": "/public/assets/hotel-cards/5.png",
+  "ribon": false,
+  "ribon_content": "",
+  "images": ["/public/assets/carousel/5-1.png", "/public/assets/carousel/5-2.png", "/public/assets/carousel/5-3.png", "/public/assets/carousel/5-4.png"],
+  "tripadvisor": "October 19, 2024",
+  "info": {
+    "address": "Central Promenade, Blackpool FY1 5DW, United Kingdom",
+    "city": "Blackpool",
+    "map": "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d18848.05845563057!2d-3.075828693842243!3d53.80715368527985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sCentral%20Promenade%2C%20Blackpool%20FY1%205DW%2C%20United!5e0!3m2!1ses!2smx!4v1729791537601!5m2!1ses!2smx",
+    "facilities": [
+      {
+        "title": "Food & Drink",
+        "content": [
+          "Five restaurants available for everyone, serving from the classic fish & chips, tasty buds, and snacks, to complete dining dishes. Check out its \u201cKids Eat Free all day, every day\u201d promo."
+        ]
+      },
+      {
+        "title": "Rooftop",
+        "content": ["No rooftop, but Coral Island has plenty of open spaces to make the most of Blackpool\u2019s northern shore."]
+      },
+      {
+        "title": "Live Shows",
+        "content": ["Check its schedule for upcoming live shows or regular hosts and themed events."]
+      },
+      {
+        "title": "Business Meetings",
+        "content": ["More likely to openly welcome public events, the Coral Island Casino doesn\u2019t offer business meeting options."]
+      },
+      {
+        "title": "Loyalty App",
+        "content": ["Available Loyalty App to download, earn virtual points to exchange for promotional offers and benefits."]
+      }
+    ],
+    "dressCode": "No particular dress code is required, but smart casual is suggested to visit the casino.",
+    "ageRestrictions": "Must be 18 or older to enter the casino, following UK regulations.",
+    "availableGames": {
+      "tableGames": ["American Roulette", "Blackjack"],
+      "electronicCasinoGames": ["Slots", "Auto Roulette"]
+    }
+  },
+  "packages": {
+    "price": {
+      "standard": 699,
+      "premium": 1399,
+      "vip": 2499
+    },
+    "airportTransfer": {
+      "standard": false,
+      "premium": true,
+      "vip": true
+    },
+    "breakfast": {
+      "standard": true,
+      "premium": true,
+      "vip": true
+    },
+    "lunch": {
+      "standard": false,
+      "premium": false,
+      "vip": true
+    },
+    "dinner": {
+      "standard": false,
+      "premium": true,
+      "vip": true
+    },
+    "vipArea": {
+      "standard": false,
+      "premium": false,
+      "vip": true
+    }
+  }
+}

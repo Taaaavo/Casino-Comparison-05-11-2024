@@ -1,0 +1,107 @@
+---
+import ConfirmButton from './components/sumary-tab/ConfirmButton';
+---
+
+<section id="sumary-modal" class="block hidden">
+  <div class="relative flex items-end">
+    <div class="w-full mt-2">
+      <div class="w-full mt-2">
+        <h2 class="px-4 py-2 font-semibold text-ellipsis overflow-hidden text-wrap lg:text-[20px] lg:px-7 xl:text-[22px]">Booking Confimation</h2>
+      </div>
+    </div>
+  </div>
+
+  <form id="sumary-form" class="flex flex-col items-center justify-center gap-6 px-5 lg:px-10">
+    <div class="flex justify-between flex-wrap gap-4 py-5 border-b-[1px] w-full border-[#C8553D22] text-black">
+      <div class="flex flex-col gap-1 w-full sm:w-5/12 lg:w-[30%]">
+        <span class="text-sm font-normal sm:text-base">First Name</span>
+        <input type="text" name="name" id="sumary-name" class="bg-transparent rounded-md py-2 px-4 outline-none text-sm sm:text-base w-full text-black" disabled />
+      </div>
+
+      <div class="flex flex-col gap-1 w-full sm:w-5/12 lg:w-[30%]">
+        <span class="text-sm font-normal sm:text-base">Last Name</span>
+        <input type="text" name="lastname" id="sumary-lastname" class="bg-transparent rounded-md py-2 px-4 outline-none text-sm w-full sm:text-base" disabled />
+      </div>
+
+      <div class="flex flex-col gap-1 w-full sm:w-5/12 lg:w-[30%]">
+        <span class="text-sm font-normal sm:text-base">Phone number</span>
+        <input type="tel" name="phone" id="sumary-phone" class="bg-transparent rounded-md py-2 px-4 outline-none text-sm w-full sm:text-base" disabled />
+      </div>
+
+      <div class="flex flex-col gap-1 w-full sm:w-5/12 lg:w-full">
+        <span class="text-sm font-normal sm:text-base">E-mail address</span>
+        <input type="email" name="email" id="sumary-email" class="bg-transparent rounded-md py-2 px-4 outline-none text-sm lg:w-[50%] xl:w-[30%] sm:text-base" disabled />
+      </div>
+    </div>
+
+    <div id="booking-casino" class="flex flex-col gap-4 lg:flex-row justify-between lg:gap-6">
+      <div class="flex justify-evenly lg:justify-start flex-wrap gap-4 pb-5">
+        <div class="flex flex-col gap-1 w-full sm:w-5/12 lg:w-[45%]">
+          <span class="text-sm font-normal sm:text-base">Destination</span>
+          <input type="text" name="destination" id="sumary-destination" class="bg-transparent rounded-md py-2 px-4 outline-none text-sm w-full sm:text-base" disabled />
+        </div>
+
+        <div class="flex flex-col gap-1 w-full sm:w-5/12 lg:w-[45%]">
+          <span class="text-sm font-normal sm:text-base">Guest and rooms</span>
+          <input type="text" name="guests" id="sumary-guests" class="bg-transparent rounded-md py-2 px-4 outline-none text-sm w-full sm:text-base" disabled />
+        </div>
+
+        <div class="flex flex-col gap-1 w-full sm:w-5/12 lg:w-[45%]">
+          <span class="text-sm font-normal sm:text-base">Package</span>
+          <input type="text" name="package" id="sumary-package" class="bg-transparent rounded-md py-2 px-4 outline-none text-sm w-full sm:text-base" disabled />
+        </div>
+
+        <div class="flex flex-col gap-1 w-full sm:w-5/12 lg:w-[45%]">
+          <span class="text-sm font-normal sm:text-base">Dates</span>
+          <input type="text" id="sumary-dates" name="sumary-dates" class="bg-transparent rounded-md py-2 px-4 outline-none text-sm w-full sm:text-base" disabled />
+        </div>
+      </div>
+
+      <!-- ? Price details -->
+      <div class="rounded-md md:p-4 flex flex-col justify-center items-center gap-3 bg-gray-100">
+        <span class="text-sm font-medium sm:text-base">Price Details</span>
+        <div class="flex items-center justify-center flex-col gap-3 w-full bg-white">
+          <div class="flex items-center justify-between gap-2 w-full bg-white">
+            <input type="text" id="selected-package" name="sumary-package" class="w-full text-center bg-white" disabled />
+            <span class="text-sm font-normal">X</span>
+            <input type="text" id="total-package" name="total-package" class="w-full text-center bg-white" disabled />
+          </div>
+
+          <div class="flex items-center justify-center gap-2 w-full bg-white">
+            <input type="text" id="sumary-rooms" name="rooms" class="w-full text-center bg-white" disabled />
+            <span class="text-sm font-normal">X</span>
+            <input type="text" id="total-rooms" name="total-rooms" class="w-full text-center bg-white" disabled />
+          </div>
+
+          <div class="flex items-center justify-center gap-2 w-full">
+            <input type="text" id="sumary-nights" name="nights" class="w-full text-center bg-white" disabled />
+            <span class="text-sm font-normal">X</span>
+            <input type="text" id="sumary-total-nights" name="total-nights" class="w-full text-center bg-white" disabled />
+          </div>
+
+          <div class="flex justify-center items-center gap-2 text-base lg:text-lg">
+            <span class="text-base font-semibold text-center bg-white w-6/12">Total</span>
+            <input type="text" id="sumary-total" name="total" disabled class="font-semibold text-center w-6/12 bg-white" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex justify-end xl:justify-start w-full mb-4">
+      <ConfirmButton client:load />
+    </div>
+  </form>
+
+  <section class="bg-black py-6 flex flex-col gap-2 items-center xl:justify-end xl:flex-row 2xl:gap-10">
+    <h3 class="text-white font-semibold">Our payments methods</h3>
+
+    <div class="flex flex-wrap gap-5 sm:gap-x-7 justify-center lg:mr-6 px-4 sm:px-6 md:px-10">
+      <img src="/public/assets/hotel-cards/modal/mastercard.png" alt="MasterCard logo" title="MasterCard" />
+      <img src="/public/assets/hotel-cards/modal/maestro.png" alt="Maestro logo" title="Maestro" />
+      <img src="/public/assets/hotel-cards/modal/visa.png" alt="Visa logo" title="Visa" />
+      <img src="/public/assets/hotel-cards/modal/americanexpress.png" alt="American Express logo" title="American Express" />
+      <img src="/public/assets/hotel-cards/modal/googlepay.png" alt="Google Pay logo" title="Google Pay" />
+      <img src="/public/assets/hotel-cards/modal/applepay.png" alt="Apple Pay logo" title="Apple Pay" />
+    </div>
+  </section>
+</section>

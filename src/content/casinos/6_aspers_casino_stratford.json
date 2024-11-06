@@ -1,0 +1,80 @@
+{
+  "hotelID": "Aspers_Casino_Stratford",
+  "hotelName": "Aspers Casino, Stratford",
+  "tripadvisor_ranking": 3.0,
+  "mainDescription": "Claiming to be the largest casino in the UK, Aspers offers over 150 slot machines, classic live table games and the biggest poker room in the country. Also a perfect venue to watch all major sporting events across multiple large screen TVs.",
+  "secondaryDescription": "At level 3 of Westfield Stratford City and less than 15 minutes away from Liverpool Street, the Aspers Casino is open 24/7 ready to welcome its guests and punters for a thrilling entertainment experience.",
+  "reviews": 288,
+  "mainImage": "/public/assets/hotel-cards/7.png",
+  "ribon": false,
+  "ribon_content": "",
+  "images": ["/public/assets/carousel/7-1.png", "/public/assets/carousel/7-2.png", "/public/assets/carousel/7-3.png", "/public/assets/carousel/7-4.png"],
+  "tripadvisor": "September 30, 2024",
+  "info": {
+    "address": "312 The Loft Montfichet Road Olympic Park, London E20 1ET, United Kingdom",
+    "city": "London",
+    "map": "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d4962.376704700474!2d-0.010451649795638923!3d51.546445137288586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s312%20The%20Loft%20Montfichet%20Road%20Olympic%20Park%2C%20London%20E20%201ET%2C%20United%20Kingdom!5e0!3m2!1ses!2smx!4v1729791650467!5m2!1ses!2smx",
+    "facilities": [
+      {
+        "title": "Food & Drink",
+        "content": ["Aspers\u2019 Tanzibar menu is full of delicious snacks and buds for everyone as well as stylish fresh drinks for a night out."]
+      },
+      {
+        "title": "Rooftop",
+        "content": [
+          "Hidden away on the top floor of Westfield Stratford City, Terrace Bar is East London\u2019s best kept secret. Its quirky modern design with illuminated bar and floor-to-ceiling drinks display make it the perfect place to relax or take in the party atmosphere."
+        ]
+      },
+      {
+        "title": "Live Shows",
+        "content": ["Not a venue for live shows, but full of Poker events to join to."]
+      },
+      {
+        "title": "Business Meetings",
+        "content": ["Facilities available for private parties and special occasions."]
+      },
+      {
+        "title": "Aspers World",
+        "content": ["It is their Loyalty reward programme to earn Aspers World Points and enjoy exclusive benefits."]
+      }
+    ],
+    "dressCode": "Customers must be appropriately dressed to enter the Casino. A decision on whether someone is or is not appropriately dressed is at the sole discretion of management, but may include sportswear, football shirts and soiled or dirty clothing.",
+    "ageRestrictions": "Guests must be 18 years or over to enter and they operate a Challenge 21 policy, so you may be asked to show a valid photo identification.",
+    "availableGames": {
+      "tableGames": ["Poker", "Roulette", "Blackjack", "Punto Blanco"],
+      "electronicCasinoGames": ["Slot machines", "Sports betting"]
+    }
+  },
+  "packages": {
+    "price": {
+      "standard": 749,
+      "premium": 1199,
+      "vip": 2199
+    },
+    "airportTransfer": {
+      "standard": false,
+      "premium": true,
+      "vip": true
+    },
+    "breakfast": {
+      "standard": true,
+      "premium": true,
+      "vip": true
+    },
+    "lunch": {
+      "standard": false,
+      "premium": false,
+      "vip": true
+    },
+    "dinner": {
+      "standard": false,
+      "premium": true,
+      "vip": true
+    },
+    "vipArea": {
+      "standard": false,
+      "premium": false,
+      "vip": true
+    }
+  }
+}

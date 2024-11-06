@@ -1,0 +1,24 @@
+---
+import { AcceptCookieButton } from '../cookie/CookieButtons';
+import { RejectCookieButton } from '../cookie/CookieButtons';
+interface Props {
+  cookie: string;
+}
+const { cookie } = Astro.props;
+---
+
+<section id="age-verification-modal" class="bg-[#00000000] flex items-center justify-center min-h-screen absolute z-50 hidden">
+  <div class="fixed inset-0 w-full bg-[#000000BB] flex items-center justify-center max-h-screen">
+    <div class="bg-white rounded-2xl shadow-lg w-10/12 sm:w-8/12 lg:max-w-[600px] h-auto max-h-54 py-16 px-6 lg:px-12 flex flex-col gap-6 lg:gap-4">
+      <div class="flex flex-col gap-1">
+        <h3 class="text-lg lg:text-xl xl:text-2xl font-light text-center">Ready to play at Experience Matchup?</h3>
+        <p class="text-[18px]/[20px] md:text-[22px]/[22px] lg:text-[24px]/[27px] text-center font-medium">Are you 18 or older to access?</p>
+      </div>
+
+      <div class="flex flex-col sm:flex-row-reverse sm:justify-center gap-2 lg:gap-4">
+        <AcceptCookieButton client:load cookie={cookie} />
+        <RejectCookieButton client:load cookie={cookie} />
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,77 @@
+{
+  "hotelID": "Admiral_Casino_Ayr",
+  "hotelName": "Admiral Casino, Ayr",
+  "tripadvisor_ranking": 3.0,
+  "mainDescription": "A great choice to live a stylish experience like no other around Ayr. The perfect venue specialized in slot machines for your leisure. The Admiral\u2019s staff guarantees to spoil you with the best care to serve you exquisite drinks free of charge.",
+  "secondaryDescription": "An exclusive seat is ready for you anytime to enjoy one of the most exciting venues in Scotland. Don\u2019t miss the opportunity to walk away with one of the many prizes and jackpots its extensive array of slot titles offer.",
+  "reviews": 31,
+  "mainImage": "/public/assets/hotel-cards/10.png",
+  "ribon": false,
+  "ribon_content": "",
+  "images": ["/public/assets/carousel/10-1.png", "/public/assets/carousel/10-2.png", "/public/assets/carousel/10-3.png", "/public/assets/carousel/10-4.png"],
+  "tripadvisor": "September 14, 2024",
+  "info": {
+    "address": "202 High St, Ayr KA7 1RQ, Scotland, United Kingdom.",
+    "city": "Ayr",
+    "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2262.07503110599!2d-4.631333022589104!3d55.46135867297764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4889d69d6ceb5101%3A0x4c3035e671eb77ff!2s202%20High%20St%2C%20Ayr%20KA7%201RQ%2C%20Reino%20Unido!5e0!3m2!1ses!2smx!4v1729791788630!5m2!1ses!2smx",
+    "facilities": [
+      {
+        "title": "Food & Drink",
+        "content": ["Enjoy the best modern Scottish drinks with a free welcome sip. Still, the Admiral has no dining options."]
+      },
+      {
+        "title": "Rooftop",
+        "content": ["Just indoors gaming rooms available, the Admiral lacks a rooftop area."]
+      },
+      {
+        "title": "Live Shows",
+        "content": ["Although the Admiral\u2019s staff thrives to serve guests with occasional themed costumes, the venue rarely hosts live entertainment shows and live sporting events screenings."]
+      },
+      {
+        "title": "Business Meetings",
+        "content": ["Furnished only with a great slot machines hall, this venue does not provide private meeting packages."]
+      },
+      {
+        "title": "Loyalty programme",
+        "content": ["The Admiral has no membership or loyalty programme to ensure access for everyone."]
+      }
+    ],
+    "dressCode": "Smart casual is the standard, but many guests opt for a more polished look.",
+    "ageRestrictions": "Strictly 18 and over, in line with UK gambling regulations.",
+    "availableGames": {
+      "electronicCasinoGames": ["A wide array of slot machine titles is available at this venue."]
+    }
+  },
+  "packages": {
+    "price": {
+      "standard": 749,
+      "premium": 999,
+      "vip": 2099
+    },
+    "airportTransfer": {
+      "standard": false,
+      "premium": true,
+      "vip": true
+    },
+    "breakfast": {
+      "standard": true,
+      "premium": true,
+      "vip": true
+    },
+    "lunch": {
+      "standard": false,
+      "premium": false,
+      "vip": true
+    },
+    "dinner": {
+      "standard": false,
+      "premium": true,
+      "vip": true
+    },
+    "vipArea": {
+      "standard": false,
+      "premium": false,
+      "vip": true
+    }
+  }
+}

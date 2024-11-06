@@ -1,0 +1,20 @@
+---
+import LegalsLayout from '../../layouts/LayoutLegals.astro';
+import SectionStructure from '../structures/SectionStructure.astro';
+import LegalNavbar from './LegalNavbar.astro';
+---
+
+<LegalsLayout title="">
+  <SectionStructure idSection="" wrapperClasses="py-28 w-full">
+    <div class="flex items-center flex-col gap-2">
+      <h3 class="text-2xl font-semibold md:text-3xl text-blueStrong">Legals</h3>
+      <h5 class="text-sm md:text-base text-[#033860]">Last Updates September 23rd, 2024</h5>
+    </div>
+    <section class="flex flex-col gap-8 md:flex-row w-full">
+      <LegalNavbar />
+      <article class="w-full md:w-9/12 order-4 md:order-none">
+        <slot />
+      </article>
+    </section>
+  </SectionStructure>
+</LegalsLayout>

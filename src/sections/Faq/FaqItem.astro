@@ -1,0 +1,21 @@
+---
+import Svg from './Svg.astro';
+interface Props {
+  question: string;
+  answer: string | string[];
+}
+
+const { question, answer } = Astro.props;
+---
+
+<article class="accordion-item w-full m-2">
+  <div class="accordion-header flex items-center gap-4 border-none text-md base:text-lg">
+    <Svg />
+    <p class="text-[16px]/[21px] md:text-[18px]/[24px] lg:text-[20px]/[29px] active:text-[20px]/[29px]">{question}</p>
+  </div>
+  <div class="accordion-content ml-10">
+    <p class="text-black accordion-content-p font-light text-[16px]/[21px] md:text-[18px]/[24px] lg:text-[20px]/[29px]">
+      {Array.isArray(answer) ? answer.map(paragraph => <p class="mb-1">{paragraph}</p>) : answer}
+    </p>
+  </div>
+</article>

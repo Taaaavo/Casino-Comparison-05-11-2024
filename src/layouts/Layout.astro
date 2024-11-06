@@ -1,0 +1,157 @@
+---
+import { fade } from 'astro:transitions';
+
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="keywords" content="brick-and-mortar casinos, UK casinos, casino rankings, top 10 casinos, casino reviews, gambling, casino comparison, casino packages" />
+    <meta name="author" content="[change_COMPANY]" />
+
+    <!-- Open Graph Metadata for social sharing (Facebook, LinkedIn, etc.) -->
+    <meta property="og:title" content="[change_DOMAIN] - Compare the Best UK Casinos" />
+    <meta property="og:description" content="[change_DOMAIN] ranks the top 10 brick-and-mortar casinos in the UK, providing detailed information on location, amenities, pricing, and reviews." />
+    <meta property="og:url" content="https://[change_DOMAIN]" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card Metadata -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="[change_DOMAIN] - Compare the Best Brick-and-Mortar Casinos in the UK" />
+    <meta name="twitter:description" content="Explore the top 10 brick-and-mortar casinos in the UK with detailed rankings, features, and reviews on [change_DOMAIN]." />
+    <meta name="twitter:image" content="https://[change_DOMAIN]/assets/twitter-image.jpg" />
+
+    <link rel="canonical" href="https://[change_DOMAIN]" />
+
+    <link rel="icon" type="image/svg+xml" href="/public/assets/navbar/logo.png" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <script defer src="/scripts/quote-hotel/guest-hotel-selection.js"></script>
+    <script defer src="/scripts/quote-hotel/date-hotel-selection.js"></script>
+    <script defer src="/scripts/faq.js"></script>
+    <script defer src="/scripts/form-secure.js"></script>
+    <script defer src="/scripts/send-form.js"></script>
+    <script defer src="/scripts/notify.js"></script>
+    <script defer src="/scripts/flag.js"></script>
+    <script defer src="/scripts/navbar.js"></script>
+
+    <!-- ? Scroll reveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!--? Styles -->
+    <link rel="stylesheet" href="/styles/faq.css" />
+    <link rel="stylesheet" href="/styles/notify.css" />
+    <link rel="stylesheet" href="/styles/quote-hotel/guests.css" />
+
+    <!-- ? Adobe Fonts -->
+    <link rel="stylesheet" href="https://use.typekit.net/exq0rwx.css">
+
+    <!-- ? Flatpickr -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+
+    <!-- ? Swipper config -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script defer type="module" src="/scripts/swiper.config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+  </head>
+  <body class="overflow bg-[#F5F5F5] " transition:animate={fade({ duration: '0.5s' })}>
+    <slot />
+    <!-- ! Footer -->
+    <Footer />
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        // @ts-expect-error
+        ScrollReveal().reveal('.animate-section', {
+          duration: 800,
+          origin: 'bottom',
+          distance: '50px',
+          easing: 'ease-in-out',
+          reset: false,
+        });
+
+        // @ts-expect-error
+        ScrollReveal().reveal('.animate-hero', {
+          duration: 600,
+          origin: 'left',
+          distance: '30px',
+          easing: 'ease-in-out',
+          reset: false,
+        });
+      });
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  html,
+  body {
+    scroll-behavior: smooth;
+    animation-timing-function: ease-out;
+    font-family: "agenda-one", sans-serif;
+  }
+
+  textarea {
+    resize: none !important;
+  }
+
+  section {
+    scroll-margin-top: 80px;
+  }
+
+  .bg-image {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .bg-image-form {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .bg-newsletter {
+    background-image: url('/public/assets/newsletter/bg-newsMobile.png');
+  }
+  .bg-section-form {
+    background-image: none;
+  }
+
+  @media (min-width: 1024px) {
+    .bg-newsletter {
+      background-image: none;
+    }
+    .bg-section-form {
+      background-image: url('/public/assets/newsletter/bg-news.png');
+    }
+  }
+
+  .overflow::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .overflow::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+
+  .overflow::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+  }
+
+  .overflow::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+</style>

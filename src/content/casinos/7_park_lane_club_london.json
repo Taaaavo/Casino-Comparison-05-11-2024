@@ -1,0 +1,78 @@
+{
+  "hotelID": "Park_Lane_Club_London",
+  "hotelName": "Park Lane Club, London",
+  "tripadvisor_ranking": 4.0,
+  "mainDescription": "The club is famous for its inviting atmosphere and architectural splendour, furnished with beautifully designed crystal ceilings and unique decor in an iconic location. Guaranteed for a night out like any other.",
+  "secondaryDescription": "Park Lane Club London is one of the city\u2019s most desirable private members\u2019 clubs. Located in one of the most famous and glamorous locations London has to offer, its exciting venue is situated in Mayfair amongst London\u2019s well-known five-starred hotels.",
+  "reviews": 7,
+  "mainImage": "/public/assets/hotel-cards/8.png",
+  "ribon": false,
+  "ribon_content": "",
+  "images": ["/public/assets/carousel/8-1.png", "/public/assets/carousel/8-2.png", "/public/assets/carousel/8-3.png", "/public/assets/carousel/8-4.png"],
+  "tripadvisor": "March 30, 2024",
+  "info": {
+    "address": "Mayfair 22 Park Lane, London W1K 1BE, United Kingdom",
+    "city": "London",
+    "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.4294461460827!2d-0.15279602277869136!3d51.5053368718129!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4876052f9bb6c433%3A0x485def2bf75035a4!2s22%20Park%20Ln%2C%20London%20W1K%201BE%2C%20Reino%20Unido!5e0!3m2!1ses!2smx!4v1729791699246!5m2!1ses!2smx",
+    "facilities": [
+      {
+        "title": "Food & Drink",
+        "content": ["Hosted by Executive Chef Brahim Hamadouche, The Park Lane Club Lounge has created mouth-watering casino and lounge menus to satisfy every taste."]
+      },
+      {
+        "title": "Rooftop",
+        "content": ["Just off the gaming floor there is the Gaming Terrace to play slots and Electronic Roulette amongst amazing views of Hyde Park."]
+      },
+      {
+        "title": "Live Shows",
+        "content": ["More likely to array the best lounges to watch live sports events, the Club rarely hosts live shows."]
+      },
+      {
+        "title": "Business Meetings",
+        "content": ["The Park Lane Club\u2019s hire options include catering and beverage packages, as well as additional entertainment options such as live music and DJ services."]
+      },
+      {
+        "title": "The Met Card Rewards",
+        "content": ["The Met Card is the casino loyalty programme from Metropolitan Gaming that rewards guests every time you eat, drink or play at any of their UK casinos."]
+      }
+    ],
+    "dressCode": "Smart casual is encouraged. Forbidden garments include caps, hoods, headcoverings, working clothing, and clothing with extreme images or slogans are not allowed in.",
+    "ageRestrictions": "Guests must be 18 or older to enter, following the UK gambling regulations.",
+    "availableGames": {
+      "tableGames": ["Roulette", "Blackjack", "Three Card Poker", "Wheel of Fortune"],
+      "electronicCasinoGames": ["Slots", "Other electronic games"]
+    }
+  },
+  "packages": {
+    "price": {
+      "standard": 749,
+      "premium": 1199,
+      "vip": 2399
+    },
+    "airportTransfer": {
+      "standard": false,
+      "premium": true,
+      "vip": true
+    },
+    "breakfast": {
+      "standard": true,
+      "premium": true,
+      "vip": true
+    },
+    "lunch": {
+      "standard": false,
+      "premium": false,
+      "vip": true
+    },
+    "dinner": {
+      "standard": false,
+      "premium": true,
+      "vip": true
+    },
+    "vipArea": {
+      "standard": false,
+      "premium": false,
+      "vip": true
+    }
+  }
+}

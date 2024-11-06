@@ -1,0 +1,78 @@
+{
+  "hotelID": "Alea_Casino_Nottingham",
+  "hotelName": "Alea Casino, Nottingham",
+  "tripadvisor_ranking": 4.0,
+  "mainDescription": "It is a glamorous and vibrating venue in the heart of Nottingham. Furnished to unleash your luck with your preferred casino games, and packed with music, karaoke, tribute shows and more for your entertainment.",
+  "secondaryDescription": "Indulge yourself at its acclaimed Marco Pierre White Steakhouse Bar & Grill. With a modern and well maintained layout it is certain to be a pleasure for your senses.",
+  "reviews": 163,
+  "mainImage": "/public/assets/hotel-cards/6.png",
+  "ribon": false,
+  "ribon_content": "",
+  "images": ["/public/assets/carousel/6-1.png", "/public/assets/carousel/6-2.png", "/public/assets/carousel/6-3.png", "/public/assets/carousel/6-4.png"],
+  "tripadvisor": "May 12, 2024",
+  "info": {
+    "address": "108 Upper Parliament St, Nottingham NG1 6LF, United Kingdom",
+    "city": "Nottingham",
+    "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2403.6613785296818!2d-1.1575867227103809!3d52.95451577217819!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4879c18098ed618b%3A0x8a493024587e46d8!2s108%20Upper%20Parliament%20St%2C%20Nottingham%20NG1%206LF%2C%20Reino%20Unido!5e0!3m2!1ses!2smx!4v1729791587722!5m2!1ses!2smx",
+    "facilities": [
+      {
+        "title": "Food & Drink",
+        "content": ["The Alea Casino serves the best dishes in Nottingham by renowned chef Marco Pierre White, along with their complete Players Menu."]
+      },
+      {
+        "title": "Rooftop",
+        "content": ["No rooftop area is available, but the casino provides a vibrant and stylish atmosphere."]
+      },
+      {
+        "title": "Live Shows",
+        "content": ["Check out its dance shows, music, karaoke weekends, and sports events scheduled to enjoy."]
+      },
+      {
+        "title": "Business Meetings",
+        "content": ["Ideal for corporate and private events, with options for dining, parties and business events."]
+      },
+      {
+        "title": "The Met Card Rewards",
+        "content": ["The Met Card is the casino loyalty programme from Metropolitan Gaming that rewards you every time you eat, drink or play at any of their UK casinos."]
+      }
+    ],
+    "dressCode": "Smart casual is the norm, with some guests opting for a more sophisticated look. Jackets are not required, and even jeans and trainers are ok as long as they look presentable and neat.",
+    "ageRestrictions": "It is required to be 18 years of age or over to enter the casino. This applies to all the casino's facilities, including the restaurants.",
+    "availableGames": {
+      "tableGames": ["Blackjack", "Three Card Poker", "American Roulette"],
+      "electronicCasinoGames": ["Electronic Roulette", "Slot Machines"]
+    }
+  },
+  "packages": {
+    "price": {
+      "standard": 599,
+      "premium": 999,
+      "vip": 1499
+    },
+    "airportTransfer": {
+      "standard": false,
+      "premium": true,
+      "vip": true
+    },
+    "breakfast": {
+      "standard": true,
+      "premium": true,
+      "vip": true
+    },
+    "lunch": {
+      "standard": false,
+      "premium": false,
+      "vip": true
+    },
+    "dinner": {
+      "standard": false,
+      "premium": true,
+      "vip": true
+    },
+    "vipArea": {
+      "standard": false,
+      "premium": false,
+      "vip": true
+    }
+  }
+}

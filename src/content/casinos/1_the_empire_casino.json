@@ -1,0 +1,80 @@
+{
+  "hotelID": "The_Empire_Casino",
+  "hotelName": "The Empire Casino",
+  "tripadvisor_ranking": 4.0,
+  "mainDescription": "Ideally located in the heart of Leicester Square, The Empire Casino is opened in one of the most exclusive postcodes in London to try your best luck in style. This lavish and exciting venue has lined up an incredible array of offers and activities of non-stop entertainment.",
+  "secondaryDescription": "The two-story Empire Casino is packed full of activities with over a hundred slot machines, fifty table games, world-class dealers, fabulous dining options, and delectable drinks.",
+  "reviews": 237,
+  "mainImage": "/public/assets/hotel-cards/2.png",
+  "ribon": false,
+  "ribon_content": "",
+  "images": ["/public/assets/carousel/2-1.png", "/public/assets/carousel/2-2.png", "/public/assets/carousel/2-3.png", "/public/assets/carousel/2-4.png"],
+  "tripadvisor": "September 29, 2024",
+  "info": {
+    "address": "5-6 Leicester Square, London WC2H 7NA, United Kingdom",
+    "city": "London",
+    "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.1239543567403!2d-0.13305262277845706!3d51.51094187181407!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604d215244161%3A0x342399a8024d38b9!2s5-6%20Leicester%20Square%2C%20London%20WC2H%207NA%2C%20Reino%20Unido!5e0!3m2!1ses!2smx!4v1729791310930!5m2!1ses!2smx",
+    "facilities": [
+      {
+        "title": "Food & Drink",
+        "content": [
+          "The Empire\u2019s 7th Cat restaurant delivers a true taste of Asia with its unique Chinese kitchen. And its Players\u2019 Menu delights with a tasty array of snacks and lunch options to delight the casino\u2019s guests."
+        ]
+      },
+      {
+        "title": "Rooftop",
+        "content": ["Its Icon Balcony Bar is available to enjoy a unique terrace experience in Leicester Square."]
+      },
+      {
+        "title": "Live Shows",
+        "content": ["Most live sports screening events are available, and the casino features live DJs on weekends."]
+      },
+      {
+        "title": "Business Meetings",
+        "content": ["Whether for a party with friends, a corporate event, or a launch - the Empire has the ideal venue for business and private events."]
+      },
+      {
+        "title": "The Met Card Rewards",
+        "content": ["The Met Card is the casino loyalty programme from Metropolitan Gaming that rewards you every time you play, drink or eat at any of its UK casinos."]
+      }
+    ],
+    "dressCode": "Smart casual is welcome, no jacket required. Jeans and trainers are fine as long as they are not scruffy.",
+    "ageRestrictions": "Guests must be 18 or older, adhering to strict UK laws.",
+    "availableGames": {
+      "tableGames": ["American Roulette", "Punto Blanco", "Blackjack", "Three Card Poker"],
+      "electronicCasinoGames": ["Slots", "Electronic Roulette"]
+    }
+  },
+  "packages": {
+    "price": {
+      "standard": 699,
+      "premium": 1299,
+      "vip": 1999
+    },
+    "airportTransfer": {
+      "standard": false,
+      "premium": true,
+      "vip": true
+    },
+    "breakfast": {
+      "standard": true,
+      "premium": true,
+      "vip": true
+    },
+    "lunch": {
+      "standard": false,
+      "premium": false,
+      "vip": true
+    },
+    "dinner": {
+      "standard": false,
+      "premium": true,
+      "vip": true
+    },
+    "vipArea": {
+      "standard": false,
+      "premium": false,
+      "vip": true
+    }
+  }
+}

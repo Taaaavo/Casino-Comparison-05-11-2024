@@ -1,0 +1,80 @@
+{
+  "hotelID": "Rainbow_Casino_Birmingham",
+  "hotelName": "Rainbow Casino, Birmingham",
+  "tripadvisor_ranking": 4.0,
+  "mainDescription": "Conveniently located 5 minutes away from Birmingham\u2019s centre sits the Rainbow Casino. First opened in 1962 and after a recent refurbishment, it is certain to deliver an excellent option for a night out in town.",
+  "secondaryDescription": "Enjoy and play its slot machines packed with bountiful jackpots, or its Touchbet roulette, Texas hold\u2019em, and many more. Relax at its bar and restaurant that overlooks the gaming floor, serving special buffets for your delight.",
+  "reviews": 260,
+  "mainImage": "/public/assets/hotel-cards/4.png",
+  "ribon": false,
+  "ribon_content": "",
+  "images": ["/public/assets/carousel/4-1.png", "/public/assets/carousel/4-2.png", "/public/assets/carousel/4-3.png", "/public/assets/carousel/4-4.png"],
+  "tripadvisor": "September 21, 2024",
+  "info": {
+    "address": "Brighton Marina Village, Brighton BN2 5UT, United Kingdom",
+    "city": "Brighton",
+    "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5041.972489998862!2d-0.10809039993215454!3d50.81289353665462!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487585d018081873%3A0xb11344aef792907a!2sBrighton%20Marina%2C%20Brighton%20and%20Hove%2C%20Reino%20Unido!5e0!3m2!1ses!2smx!4v1729791480835!5m2!1ses!2smx",
+    "facilities": [
+      {
+        "title": "Food & Drink",
+        "content": ["Snacks galore and fresh drinks are available to complete your night out to the Rainbow Casino."]
+      },
+      {
+        "title": "Rooftop",
+        "content": [
+          "No rooftop available, but the Rainbow Casino benefits from an outdoor gaming terrace where guests can breathe fresh air or smoke whilst gaming. The terrace also includes a seated area to be comfortable, enjoy a beverage or have something to eat."
+        ]
+      },
+      {
+        "title": "Live Shows",
+        "content": ["Focused mainly on the gaming experience, the Rainbow Casino rarely hosts live shows."]
+      },
+      {
+        "title": "Business Meetings",
+        "content": ["Available for private events with personalized catering and services."]
+      },
+      {
+        "title": "Rainbow membership",
+        "content": ["The casino is run with a free required membership, meaning all visitors must become members before they are allowed entry."]
+      }
+    ],
+    "dressCode": "Smart casual and relaxed is encouraged, no jackets are required.",
+    "ageRestrictions": "Guests must be 18 or older to enter, following the strict UK gambling regulations.",
+    "availableGames": {
+      "tableGames": ["Roulette", "Blackjack", "Three Card Poker", "Mah Jong", "Punto Blanco"],
+      "electronicCasinoGames": ["Electronic Roulette", "Plenty of slots"]
+    }
+  },
+  "packages": {
+    "price": {
+      "standard": 699,
+      "premium": 1099,
+      "vip": 2299
+    },
+    "airportTransfer": {
+      "standard": false,
+      "premium": true,
+      "vip": true
+    },
+    "breakfast": {
+      "standard": true,
+      "premium": true,
+      "vip": true
+    },
+    "lunch": {
+      "standard": false,
+      "premium": false,
+      "vip": true
+    },
+    "dinner": {
+      "standard": false,
+      "premium": true,
+      "vip": true
+    },
+    "vipArea": {
+      "standard": false,
+      "premium": false,
+      "vip": true
+    }
+  }
+}

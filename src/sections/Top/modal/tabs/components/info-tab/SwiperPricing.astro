@@ -1,0 +1,541 @@
+---
+import { z } from 'zod';
+import { HotelSchema } from '../../../../../../d';
+import OpenBookingButton from './OpenBookingButton';
+
+type Hotel = z.infer<typeof HotelSchema>;
+
+interface Props {
+  hotel: Hotel;
+  index: number;
+}
+
+const { hotel, index } = Astro.props;
+---
+
+<article class="w-full px-3 sm:px-6 md:px-8">
+  <!-- Swiper -->
+  <div class="swiper w-full" id="swiper-pricing">
+    <div class="swiper-wrapper w-max">
+      <!-- Slide 1: Standard -->
+      <div class="swiper-slide">
+        <div class="flex flex-col items-center gap-4 md:gap-8 pb-8">
+          <div class="flex gap-4 md:gap-8 sm:gap-14">
+            <div class="flex flex-col gap-4">
+              <h5 class="text-start text-base font-semibold sm:text-lg md:text-xl">Specs</h5>
+              <ul class="flex flex-col gap-4 items-start text-sm sm:text-base md:text-lg">
+                <li class="h-[30px] flex items-center"><span>Price</span></li>
+                <li class="flex gap-2 h-[30px] items-center">
+                  <span>Airport Transfers</span>
+                  <div class="relative group">
+                    <img
+                      class="w-4 h-4 object-contain"
+                      src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjRDY0NTUwIiBkPSJNMTEgMTdoMnYtNmgtMnptMS04cS40MjUgMCAuNzEzLS4yODhUMTMgOHQtLjI4OC0uNzEyVDEyIDd0LS43MTIuMjg4VDExIDh0LjI4OC43MTNUMTIgOW0wIDEzcS0yLjA3NSAwLTMuOS0uNzg4dC0zLjE3NS0yLjEzN1QyLjc4OCAxNS45VDIgMTJ0Ljc4OC0zLjl0Mi4xMzctMy4xNzVUOC4xIDIuNzg4VDEyIDJ0My45Ljc4OHQzLjE3NSAyLjEzN1QyMS4yMTMgOC4xVDIyIDEydC0uNzg4IDMuOXQtMi4xMzcgMy4xNzV0LTMuMTc1IDIuMTM4VDEyIDIyIi8+PC9zdmc+"
+                      alt="info"
+                    />
+                    <div class="absolute hidden w-[200px] text-center group-hover:flex right-0 flex-col items-center gap-2 bg-white shadow-2xl rounded-t-xl px-3 py-4">
+                      <span class="text-xs md:text-sm font-bold">Airport Transfers information</span>
+                      <p class="text-xs md:text-sm">Service is provided for transportation both from airport to casino and from casino to airport</p>
+                    </div>
+                  </div>
+                </li>
+                <li class="h-[30px] flex items-center"><span>Breakfast</span></li>
+                <li class="h-[30px] flex items-center"><span>Lunch</span></li>
+                <li class="h-[30px] flex items-center"><span>Dinner</span></li>
+                <li class="flex gap-2 h-[30px] items-center">
+                  <span>Access to VIP Area</span>
+                  <div class="relative group">
+                    <img
+                      class="w-4 h-4 object-contain"
+                      src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjRDY0NTUwIiBkPSJNMTEgMTdoMnYtNmgtMnptMS04cS40MjUgMCAuNzEzLS4yODhUMTMgOHQtLjI4OC0uNzEyVDEyIDd0LS43MTIuMjg4VDExIDh0LjI4OC43MTNUMTIgOW0wIDEzcS0yLjA3NSAwLTMuOS0uNzg4dC0zLjE3NS0yLjEzN1QyLjc4OCAxNS45VDIgMTJ0Ljc4OC0zLjl0Mi4xMzctMy4xNzVUOC4xIDIuNzg4VDEyIDJ0My45Ljc4OHQzLjE3NSAyLjEzN1QyMS4yMTMgOC4xVDIyIDEydC0uNzg4IDMuOXQtMi4xMzcgMy4xNzV0LTMuMTc1IDIuMTM4VDEyIDIyIi8+PC9zdmc+"
+                      alt="info"
+                    />
+                    <div class="absolute hidden w-[200px] text-center group-hover:flex bottom-0 right-0 flex-col items-center gap-2 bg-white shadow-2xl rounded-t-xl px-3 py-4">
+                      <span class="text-xs md:text-sm font-bold">VIP Area Information</span>
+                      <p class="text-xs md:text-sm">For more information about specific perks, please contact The Sportsman Casino as VIP area offerings may vary between venues.</p>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="flex flex-col gap-4">
+              <h5 class="text-center text-base font-semibold sm:text-lg md:text-xl">Standard</h5>
+              <ul class="flex flex-col gap-4 items-start text-sm sm:text-base md:text-lg">
+                <li class="h-[30px] w-full flex justify-center items-center"><span>${hotel.packages.price.standard}</span></li>
+                <li class="h-[30px] w-full flex justify-center items-center">
+                  {
+                    hotel.packages.airportTransfer.standard ? (
+                      <div>
+                        <img
+                          class="w-5 h-5 object-contain"
+                          src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjMjEyNDI3IiBkPSJNMTguNzEgNy4yMWExIDEgMCAwIDAtMS40MiAwbC03LjQ1IDcuNDZsLTMuMTMtMy4xNEExIDEgMCAxIDAgNS4yOSAxM2wzLjg0IDMuODRhMSAxIDAgMCAwIDEuNDIgMGw4LjE2LTguMTZhMSAxIDAgMCAwIDAtMS40NyIvPjwvc3ZnPg=="
+                          alt="Included icon"
+                          title="Included"
+                        />
+                      </div>
+                    ) : (
+                      <div>
+                        <img
+                          class="w-5 h-5 object-contain"
+                          src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiMyMTI0MjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJtNyA3bDEwIDEwTTcgMTdMMTcgNyIvPjwvc3ZnPg=="
+                          alt="Not included icon"
+                          title="Not included"
+                        />
+                      </div>
+                    )
+                  }
+                </li>
+
+                <li class="h-[30px] w-full flex justify-center items-center">
+                  {
+                    hotel.packages.breakfast.standard ? (
+                      <div>
+                        <img
+                          class="w-5 h-5 object-contain"
+                          src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjMjEyNDI3IiBkPSJNMTguNzEgNy4yMWExIDEgMCAwIDAtMS40MiAwbC03LjQ1IDcuNDZsLTMuMTMtMy4xNEExIDEgMCAxIDAgNS4yOSAxM2wzLjg0IDMuODRhMSAxIDAgMCAwIDEuNDIgMGw4LjE2LTguMTZhMSAxIDAgMCAwIDAtMS40NyIvPjwvc3ZnPg=="
+                          alt="Included icon"
+                          title="Included"
+                        />
+                      </div>
+                    ) : (
+                      <div>
+                        <img
+                          class="w-5 h-5 object-contain"
+                          src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiMyMTI0MjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJtNyA3bDEwIDEwTTcgMTdMMTcgNyIvPjwvc3ZnPg=="
+                          alt="Not included icon"
+                          title="Not included"
+                        />
+                      </div>
+                    )
+                  }
+                </li>
+
+                <li class="h-[30px] w-full flex justify-center items-center">
+                  {
+                    hotel.packages.lunch.standard ? (
+                      <div>
+                        <img
+                          class="w-5 h-5 object-contain"
+                          src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjMjEyNDI3IiBkPSJNMTguNzEgNy4yMWExIDEgMCAwIDAtMS40MiAwbC03LjQ1IDcuNDZsLTMuMTMtMy4xNEExIDEgMCAxIDAgNS4yOSAxM2wzLjg0IDMuODRhMSAxIDAgMCAwIDEuNDIgMGw4LjE2LTguMTZhMSAxIDAgMCAwIDAtMS40NyIvPjwvc3ZnPg=="
+                          alt="Included icon"
+                          title="Included"
+                        />
+                      </div>
+                    ) : (
+                      <div>
+                        <img
+                          class="w-5 h-5 object-contain"
+                          src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiMyMTI0MjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJtNyA3bDEwIDEwTTcgMTdMMTcgNyIvPjwvc3ZnPg=="
+                          alt="Not included icon"
+                          title="Not included"
+                        />
+                      </div>
+                    )
+                  }
+                </li>
+
+                <li class="h-[30px] w-full flex justify-center items-center">
+                  {
+                    hotel.packages.dinner.standard ? (
+                      <div>
+                        <img
+                          class="w-5 h-5 object-contain"
+                          src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjMjEyNDI3IiBkPSJNMTguNzEgNy4yMWExIDEgMCAwIDAtMS40MiAwbC03LjQ1IDcuNDZsLTMuMTMtMy4xNEExIDEgMCAxIDAgNS4yOSAxM2wzLjg0IDMuODRhMSAxIDAgMCAwIDEuNDIgMGw4LjE2LTguMTZhMSAxIDAgMCAwIDAtMS40NyIvPjwvc3ZnPg=="
+                          alt="Included icon"
+                          title="Included"
+                        />
+                      </div>
+                    ) : (
+                      <div>
+                        <img
+                          class="w-5 h-5 object-contain"
+                          src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiMyMTI0MjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJtNyA3bDEwIDEwTTcgMTdMMTcgNyIvPjwvc3ZnPg=="
+                          alt="Not included icon"
+                          title="Not included"
+                        />
+                      </div>
+                    )
+                  }
+                </li>
+
+                <li class="h-[30px] w-full flex justify-center items-center">
+                  {
+                    hotel.packages.vipArea.standard ? (
+                      <div>
+                        <img
+                          class="w-5 h-5 object-contain"
+                          src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjMjEyNDI3IiBkPSJNMTguNzEgNy4yMWExIDEgMCAwIDAtMS40MiAwbC03LjQ1IDcuNDZsLTMuMTMtMy4xNEExIDEgMCAxIDAgNS4yOSAxM2wzLjg0IDMuODRhMSAxIDAgMCAwIDEuNDIgMGw4LjE2LTguMTZhMSAxIDAgMCAwIDAtMS40NyIvPjwvc3ZnPg=="
+                          alt="Included icon"
+                          title="Included"
+                        />
+                      </div>
+                    ) : (
+                      <div>
+                        <img
+                          class="w-5 h-5 object-contain"
+                          src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiMyMTI0MjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJtNyA3bDEwIDEwTTcgMTdMMTcgNyIvPjwvc3ZnPg=="
+                          alt="Not included icon"
+                          title="Not included"
+                        />
+                      </div>
+                    )
+                  }
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <OpenBookingButton client:load hotelID={hotel.hotelID} packageID="standard" packagesPrices={hotel.packages.price} hotelName={`${index + 1}. ${hotel.hotelName}`} />
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2: Premium -->
+      <div class="swiper-slide">
+        <div class="flex flex-col items-center gap-4 md:gap-8 pb-8">
+          <div class="flex gap-4 md:gap-8 sm:gap-14">
+            <div class="flex flex-col gap-4">
+              <h5 class="text-start text-base font-semibold sm:text-lg md:text-xl">Specs</h5>
+              <ul class="flex flex-col gap-4 items-start text-sm sm:text-base md:text-lg">
+                <li class="h-[30px] flex items-center"><span>Price</span></li>
+                <li class="flex gap-2 h-[30px] items-center">
+                  <span>Airport Transfers</span>
+                  <div class="relative group">
+                    <img
+                      class="w-4 h-4 object-contain"
+                      src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjRDY0NTUwIiBkPSJNMTEgMTdoMnYtNmgtMnptMS04cS40MjUgMCAuNzEzLS4yODhUMTMgOHQtLjI4OC0uNzEyVDEyIDd0LS43MTIuMjg4VDExIDh0LjI4OC43MTNUMTIgOW0wIDEzcS0yLjA3NSAwLTMuOS0uNzg4dC0zLjE3NS0yLjEzN1QyLjc4OCAxNS45VDIgMTJ0Ljc4OC0zLjl0Mi4xMzctMy4xNzVUOC4xIDIuNzg4VDEyIDJ0My45Ljc4OHQzLjE3NSAyLjEzN1QyMS4yMTMgOC4xVDIyIDEydC0uNzg4IDMuOXQtMi4xMzcgMy4xNzV0LTMuMTc1IDIuMTM4VDEyIDIyIi8+PC9zdmc+"
+                      alt="info"
+                    />
+                    <div class="absolute hidden w-[200px] text-center group-hover:flex right-0 flex-col items-center gap-2 bg-white shadow-2xl rounded-t-xl px-3 py-4">
+                      <span class="text-xs md:text-sm font-bold">Airport Transfers information</span>
+                      <p class="text-xs md:text-sm">The service is provided for transportation both from the airport to the casino and from the casino to the airport.</p>
+                    </div>
+                  </div>
+                </li>
+                <li class="h-[30px] flex items-center"><span>Breakfast</span></li>
+                <li class="h-[30px] flex items-center"><span>Lunch</span></li>
+                <li class="h-[30px] flex items-center"><span>Dinner</span></li>
+                <li class="flex gap-2 h-[30px] items-center">
+                  <span>Access to VIP Area</span>
+                  <div class="relative group">
+                    <img
+                      class="w-4 h-4 object-contain"
+                      src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjRDY0NTUwIiBkPSJNMTEgMTdoMnYtNmgtMnptMS04cS40MjUgMCAuNzEzLS4yODhUMTMgOHQtLjI4OC0uNzEyVDEyIDd0LS43MTIuMjg4VDExIDh0LjI4OC43MTNUMTIgOW0wIDEzcS0yLjA3NSAwLTMuOS0uNzg4dC0zLjE3NS0yLjEzN1QyLjc4OCAxNS45VDIgMTJ0Ljc4OC0zLjl0Mi4xMzctMy4xNzVUOC4xIDIuNzg4VDEyIDJ0My45Ljc4OHQzLjE3NSAyLjEzN1QyMS4yMTMgOC4xVDIyIDEydC0uNzg4IDMuOXQtMi4xMzcgMy4xNzV0LTMuMTc1IDIuMTM4VDEyIDIyIi8+PC9zdmc+"
+                      alt="info"
+                    />
+                    <div class="absolute hidden w-[200px] text-center group-hover:flex bottom-0 right-0 flex-col items-center gap-2 bg-white shadow-2xl rounded-t-xl px-3 py-4">
+                      <span class="text-xs md:text-sm font-bold">VIP Area Information</span>
+                      <p class="text-xs md:text-sm">For more information about specific perks, please contact us, as VIP area offerings vary between casinos.</p>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="flex flex-col gap-4">
+              <h5 class="text-center text-base font-semibold sm:text-lg md:text-xl">Premium</h5>
+              <ul class="flex flex-col gap-4 items-start text-sm sm:text-base md:text-lg">
+                <li class="h-[30px] w-full flex justify-center items-center"><span>${hotel.packages.price.premium}</span></li>
+                <li class="h-[30px] w-full flex justify-center items-center">
+                  {
+                    hotel.packages.airportTransfer.premium ? (
+                      <div>
+                        <img
+                          class="w-5 h-5 object-contain"
+                          src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjMjEyNDI3IiBkPSJNMTguNzEgNy4yMWExIDEgMCAwIDAtMS40MiAwbC03LjQ1IDcuNDZsLTMuMTMtMy4xNEExIDEgMCAxIDAgNS4yOSAxM2wzLjg0IDMuODRhMSAxIDAgMCAwIDEuNDIgMGw4LjE2LTguMTZhMSAxIDAgMCAwIDAtMS40NyIvPjwvc3ZnPg=="
+                          alt="Included icon"
+                          title="Included"
+                        />
+                      </div>
+                    ) : (
+                      <div>
+                        <img
+                          class="w-5 h-5 object-contain"
+                          src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiMyMTI0MjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJtNyA3bDEwIDEwTTcgMTdMMTcgNyIvPjwvc3ZnPg=="
+                          alt="Not included icon"
+                          title="Not included"
+                        />
+                      </div>
+                    )
+                  }
+                </li>
+
+                <li class="h-[30px] w-full flex justify-center items-center">
+                  {
+                    hotel.packages.breakfast.premium ? (
+                      <div>
+                        <img
+                          class="w-5 h-5 object-contain"
+                          src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjMjEyNDI3IiBkPSJNMTguNzEgNy4yMWExIDEgMCAwIDAtMS40MiAwbC03LjQ1IDcuNDZsLTMuMTMtMy4xNEExIDEgMCAxIDAgNS4yOSAxM2wzLjg0IDMuODRhMSAxIDAgMCAwIDEuNDIgMGw4LjE2LTguMTZhMSAxIDAgMCAwIDAtMS40NyIvPjwvc3ZnPg=="
+                          alt="Included icon"
+                          title="Included"
+                        />
+                      </div>
+                    ) : (
+                      <div>
+                        <img
+                          class="w-5 h-5 object-contain"
+                          src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiMyMTI0MjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJtNyA3bDEwIDEwTTcgMTdMMTcgNyIvPjwvc3ZnPg=="
+                          alt="Not included icon"
+                          title="Not included"
+                        />
+                      </div>
+                    )
+                  }
+                </li>
+
+                <li class="h-[30px] w-full flex justify-center items-center">
+                  {
+                    hotel.packages.lunch.premium ? (
+                      <div>
+                        <img
+                          class="w-5 h-5 object-contain"
+                          src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjMjEyNDI3IiBkPSJNMTguNzEgNy4yMWExIDEgMCAwIDAtMS40MiAwbC03LjQ1IDcuNDZsLTMuMTMtMy4xNEExIDEgMCAxIDAgNS4yOSAxM2wzLjg0IDMuODRhMSAxIDAgMCAwIDEuNDIgMGw4LjE2LTguMTZhMSAxIDAgMCAwIDAtMS40NyIvPjwvc3ZnPg=="
+                          alt="Included icon"
+                          title="Included"
+                        />
+                      </div>
+                    ) : (
+                      <div>
+                        <img
+                          class="w-5 h-5 object-contain"
+                          src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiMyMTI0MjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJtNyA3bDEwIDEwTTcgMTdMMTcgNyIvPjwvc3ZnPg=="
+                          alt="Not included icon"
+                          title="Not included"
+                        />
+                      </div>
+                    )
+                  }
+                </li>
+
+                <li class="h-[30px] w-full flex justify-center items-center">
+                  {
+                    hotel.packages.dinner.premium ? (
+                      <div>
+                        <img
+                          class="w-5 h-5 object-contain"
+                          src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjMjEyNDI3IiBkPSJNMTguNzEgNy4yMWExIDEgMCAwIDAtMS40MiAwbC03LjQ1IDcuNDZsLTMuMTMtMy4xNEExIDEgMCAxIDAgNS4yOSAxM2wzLjg0IDMuODRhMSAxIDAgMCAwIDEuNDIgMGw4LjE2LTguMTZhMSAxIDAgMCAwIDAtMS40NyIvPjwvc3ZnPg=="
+                          alt="Included icon"
+                          title="Included"
+                        />
+                      </div>
+                    ) : (
+                      <div>
+                        <img
+                          class="w-5 h-5 object-contain"
+                          src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiMyMTI0MjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJtNyA3bDEwIDEwTTcgMTdMMTcgNyIvPjwvc3ZnPg=="
+                          alt="Not included icon"
+                          title="Not included"
+                        />
+                      </div>
+                    )
+                  }
+                </li>
+
+                <li class="h-[30px] w-full flex justify-center items-center">
+                  {
+                    hotel.packages.vipArea.premium ? (
+                      <div>
+                        <img
+                          class="w-5 h-5 object-contain"
+                          src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjMjEyNDI3IiBkPSJNMTguNzEgNy4yMWExIDEgMCAwIDAtMS40MiAwbC03LjQ1IDcuNDZsLTMuMTMtMy4xNEExIDEgMCAxIDAgNS4yOSAxM2wzLjg0IDMuODRhMSAxIDAgMCAwIDEuNDIgMGw4LjE2LTguMTZhMSAxIDAgMCAwIDAtMS40NyIvPjwvc3ZnPg=="
+                          alt="Included icon"
+                          title="Included"
+                        />
+                      </div>
+                    ) : (
+                      <div>
+                        <img
+                          class="w-5 h-5 object-contain"
+                          src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiMyMTI0MjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJtNyA3bDEwIDEwTTcgMTdMMTcgNyIvPjwvc3ZnPg=="
+                          alt="Not included icon"
+                          title="Not included"
+                        />
+                      </div>
+                    )
+                  }
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <OpenBookingButton client:load hotelID={hotel.hotelID} packageID="premium" packagesPrices={hotel.packages.price} hotelName={`${index + 1}. ${hotel.hotelName}`} />
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: VIP -->
+      <div class="swiper-slide">
+        <div class="flex flex-col items-center gap-4 md:gap-8 pb-8">
+          <div class="flex gap-4 md:gap-8 sm:gap-14">
+            <div class="flex flex-col gap-4">
+              <h5 class="text-start text-base font-semibold sm:text-lg md:text-xl">Specs</h5>
+              <ul class="flex flex-col gap-4 items-start text-sm sm:text-base md:text-lg">
+                <li class="h-[30px] flex items-center"><span>Price</span></li>
+                <li class="flex gap-2 h-[30px] items-center">
+                  <span>Airport Transfers</span>
+                  <div class="relative group">
+                    <img
+                      class="w-4 h-4 object-contain"
+                      src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjRDY0NTUwIiBkPSJNMTEgMTdoMnYtNmgtMnptMS04cS40MjUgMCAuNzEzLS4yODhUMTMgOHQtLjI4OC0uNzEyVDEyIDd0LS43MTIuMjg4VDExIDh0LjI4OC43MTNUMTIgOW0wIDEzcS0yLjA3NSAwLTMuOS0uNzg4dC0zLjE3NS0yLjEzN1QyLjc4OCAxNS45VDIgMTJ0Ljc4OC0zLjl0Mi4xMzctMy4xNzVUOC4xIDIuNzg4VDEyIDJ0My45Ljc4OHQzLjE3NSAyLjEzN1QyMS4yMTMgOC4xVDIyIDEydC0uNzg4IDMuOXQtMi4xMzcgMy4xNzV0LTMuMTc1IDIuMTM4VDEyIDIyIi8+PC9zdmc+"
+                      alt="info"
+                    />
+                    <div class="absolute hidden w-[200px] text-center group-hover:flex right-0 flex-col items-center gap-2 bg-white shadow-2xl rounded-t-xl px-3 py-4">
+                      <span class="text-xs md:text-sm font-bold">Airport Transfers information</span>
+                      <p class="text-xs md:text-sm">The service is provided for transportation both from the airport to the casino and from the casino to the airport.</p>
+                    </div>
+                  </div>
+                </li>
+                <li class="h-[30px] flex items-center"><span>Breakfast</span></li>
+                <li class="h-[30px] flex items-center"><span>Lunch</span></li>
+                <li class="h-[30px] flex items-center"><span>Dinner</span></li>
+                <li class="flex gap-2 h-[30px] items-center">
+                  <span>Access to VIP Area</span>
+                  <div class="relative group">
+                    <img
+                      class="w-4 h-4 object-contain"
+                      src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjRDY0NTUwIiBkPSJNMTEgMTdoMnYtNmgtMnptMS04cS40MjUgMCAuNzEzLS4yODhUMTMgOHQtLjI4OC0uNzEyVDEyIDd0LS43MTIuMjg4VDExIDh0LjI4OC43MTNUMTIgOW0wIDEzcS0yLjA3NSAwLTMuOS0uNzg4dC0zLjE3NS0yLjEzN1QyLjc4OCAxNS45VDIgMTJ0Ljc4OC0zLjl0Mi4xMzctMy4xNzVUOC4xIDIuNzg4VDEyIDJ0My45Ljc4OHQzLjE3NSAyLjEzN1QyMS4yMTMgOC4xVDIyIDEydC0uNzg4IDMuOXQtMi4xMzcgMy4xNzV0LTMuMTc1IDIuMTM4VDEyIDIyIi8+PC9zdmc+"
+                      alt="info"
+                    />
+                    <div class="absolute hidden w-[200px] text-center group-hover:flex bottom-0 right-0 flex-col items-center gap-2 bg-white shadow-2xl rounded-t-xl px-3 py-4">
+                      <span class="text-xs md:text-sm font-bold">VIP Area Information</span>
+                      <p class="text-xs md:text-sm">For more information about specific perks, please contact us, as VIP area offerings vary between casinos.</p>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="flex flex-col gap-4">
+              <h5 class="text-center text-base font-semibold sm:text-lg md:text-xl">VIP</h5>
+              <ul class="flex flex-col gap-4 items-start text-sm sm:text-base md:text-lg">
+                <li class="h-[30px] w-full flex justify-center items-center"><span>${hotel.packages.price.vip}</span></li>
+                <li class="h-[30px] w-full flex justify-center items-center">
+                  {
+                    hotel.packages.airportTransfer.vip ? (
+                      <div>
+                        <img
+                          class="w-5 h-5 object-contain"
+                          src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjMjEyNDI3IiBkPSJNMTguNzEgNy4yMWExIDEgMCAwIDAtMS40MiAwbC03LjQ1IDcuNDZsLTMuMTMtMy4xNEExIDEgMCAxIDAgNS4yOSAxM2wzLjg0IDMuODRhMSAxIDAgMCAwIDEuNDIgMGw4LjE2LTguMTZhMSAxIDAgMCAwIDAtMS40NyIvPjwvc3ZnPg=="
+                          alt="Included icon"
+                          title="Included"
+                        />
+                      </div>
+                    ) : (
+                      <div>
+                        <img
+                          class="w-5 h-5 object-contain"
+                          src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiMyMTI0MjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJtNyA3bDEwIDEwTTcgMTdMMTcgNyIvPjwvc3ZnPg=="
+                          alt="Not included icon"
+                          title="Not included"
+                        />
+                      </div>
+                    )
+                  }
+                </li>
+
+                <li class="h-[30px] w-full flex justify-center items-center">
+                  {
+                    hotel.packages.breakfast.vip ? (
+                      <div>
+                        <img
+                          class="w-5 h-5 object-contain"
+                          src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjMjEyNDI3IiBkPSJNMTguNzEgNy4yMWExIDEgMCAwIDAtMS40MiAwbC03LjQ1IDcuNDZsLTMuMTMtMy4xNEExIDEgMCAxIDAgNS4yOSAxM2wzLjg0IDMuODRhMSAxIDAgMCAwIDEuNDIgMGw4LjE2LTguMTZhMSAxIDAgMCAwIDAtMS40NyIvPjwvc3ZnPg=="
+                          alt="Included icon"
+                          title="Included"
+                        />
+                      </div>
+                    ) : (
+                      <div>
+                        <img
+                          class="w-5 h-5 object-contain"
+                          src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiMyMTI0MjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJtNyA3bDEwIDEwTTcgMTdMMTcgNyIvPjwvc3ZnPg=="
+                          alt="Not included icon"
+                          title="Not included"
+                        />
+                      </div>
+                    )
+                  }
+                </li>
+
+                <li class="h-[30px] w-full flex justify-center items-center">
+                  {
+                    hotel.packages.lunch.vip ? (
+                      <div>
+                        <img
+                          class="w-5 h-5 object-contain"
+                          src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjMjEyNDI3IiBkPSJNMTguNzEgNy4yMWExIDEgMCAwIDAtMS40MiAwbC03LjQ1IDcuNDZsLTMuMTMtMy4xNEExIDEgMCAxIDAgNS4yOSAxM2wzLjg0IDMuODRhMSAxIDAgMCAwIDEuNDIgMGw4LjE2LTguMTZhMSAxIDAgMCAwIDAtMS40NyIvPjwvc3ZnPg=="
+                          alt="Included icon"
+                          title="Included"
+                        />
+                      </div>
+                    ) : (
+                      <div>
+                        <img
+                          class="w-5 h-5 object-contain"
+                          src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiMyMTI0MjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJtNyA3bDEwIDEwTTcgMTdMMTcgNyIvPjwvc3ZnPg=="
+                          alt="Not included icon"
+                          title="Not included"
+                        />
+                      </div>
+                    )
+                  }
+                </li>
+
+                <li class="h-[30px] w-full flex justify-center items-center">
+                  {
+                    hotel.packages.dinner.vip ? (
+                      <div>
+                        <img
+                          class="w-5 h-5 object-contain"
+                          src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjMjEyNDI3IiBkPSJNMTguNzEgNy4yMWExIDEgMCAwIDAtMS40MiAwbC03LjQ1IDcuNDZsLTMuMTMtMy4xNEExIDEgMCAxIDAgNS4yOSAxM2wzLjg0IDMuODRhMSAxIDAgMCAwIDEuNDIgMGw4LjE2LTguMTZhMSAxIDAgMCAwIDAtMS40NyIvPjwvc3ZnPg=="
+                          alt="Included icon"
+                          title="Included"
+                        />
+                      </div>
+                    ) : (
+                      <div>
+                        <img
+                          class="w-5 h-5 object-contain"
+                          src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiMyMTI0MjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJtNyA3bDEwIDEwTTcgMTdMMTcgNyIvPjwvc3ZnPg=="
+                          alt="Not included icon"
+                          title="Not included"
+                        />
+                      </div>
+                    )
+                  }
+                </li>
+
+                <li class="h-[30px] w-full flex justify-center items-center">
+                  {
+                    hotel.packages.vipArea.vip ? (
+                      <div>
+                        <img
+                          class="w-5 h-5 object-contain"
+                          src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjMjEyNDI3IiBkPSJNMTguNzEgNy4yMWExIDEgMCAwIDAtMS40MiAwbC03LjQ1IDcuNDZsLTMuMTMtMy4xNEExIDEgMCAxIDAgNS4yOSAxM2wzLjg0IDMuODRhMSAxIDAgMCAwIDEuNDIgMGw4LjE2LTguMTZhMSAxIDAgMCAwIDAtMS40NyIvPjwvc3ZnPg=="
+                          alt="Included icon"
+                          title="Included"
+                        />
+                      </div>
+                    ) : (
+                      <div>
+                        <img
+                          class="w-5 h-5 object-contain"
+                          src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiMyMTI0MjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJtNyA3bDEwIDEwTTcgMTdMMTcgNyIvPjwvc3ZnPg=="
+                          alt="Not included icon"
+                          title="Not included"
+                        />
+                      </div>
+                    )
+                  }
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <OpenBookingButton client:load hotelID={hotel.hotelID} packageID="vip" packagesPrices={hotel.packages.price} hotelName={`${index + 1}. ${hotel.hotelName}`} />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>

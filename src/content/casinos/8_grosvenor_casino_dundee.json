@@ -1,0 +1,78 @@
+{
+  "hotelID": "Grosvenor_Casino_Dundee",
+  "hotelName": "Grosvenor Casino, Dundee",
+  "tripadvisor_ranking": 3.0,
+  "mainDescription": "Open 24/7 in the heart of the city, the Grosvenor Casino offers an extensive selection of table and electronic games like Blackjack, Poker, Roulette and slot machines to thrill your gaming experience.",
+  "secondaryDescription": "The two-floor casino not only boasts a vibrant atmosphere and exquisite decor, it also serves a la carte dishes for a great dining experience.",
+  "reviews": 94,
+  "mainImage": "/public/assets/hotel-cards/9.png",
+  "ribon": false,
+  "ribon_content": "",
+  "images": ["/public/assets/carousel/9-1.png", "/public/assets/carousel/9-2.png", "/public/assets/carousel/9-3.png", "/public/assets/carousel/9-4.png"],
+  "tripadvisor": "June 4, 2024",
+  "info": {
+    "address": "142 West Marketgait, Dundee DD1 1NJ Scotland, United Kingdom.",
+    "city": "Dundee",
+    "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2204.4317283654045!2d-2.980680922539738!3d56.46032307335444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48865cc0c1eb4a81%3A0xe95cd476a0627acc!2s142%20W%20Marketgait%2C%20Dundee%20DD1%201NJ%2C%20Reino%20Unido!5e0!3m2!1ses!2smx!4v1729791738917!5m2!1ses!2smx",
+    "facilities": [
+      {
+        "title": "Food & Drink",
+        "content": ["Dine at the Grosvenor\u2019s stylish restaurant and enjoy a drink at the bar."]
+      },
+      {
+        "title": "Rooftop",
+        "content": ["No rooftop area, but the casino\u2019s fine interiors and exhilarating vibe make it an excellent leisure choice."]
+      },
+      {
+        "title": "Live Shows",
+        "content": ["Although it may host occasional themed nights, it does not provide live shows."]
+      },
+      {
+        "title": "Business Meetings",
+        "content": ["Available service hire for private parties and special occasions with personalized services."]
+      },
+      {
+        "title": "Grosvenor Casinos Membership",
+        "content": ["The Grosvenors membership programme enables special offers and exclusive benefits."]
+      }
+    ],
+    "dressCode": "Smart casual and relaxed is encouraged, but formal attire is always welcome.",
+    "ageRestrictions": "Guests must be 18 or older to enter, in line with UK regulations.",
+    "availableGames": {
+      "tableGames": ["Roulette", "Blackjack", "Baccarat", "Poker"],
+      "electronicCasinoGames": ["Slots", "Electronic Poker", "Electronic Roulette"]
+    }
+  },
+  "packages": {
+    "price": {
+      "standard": 749,
+      "premium": 1099,
+      "vip": 1999
+    },
+    "airportTransfer": {
+      "standard": false,
+      "premium": true,
+      "vip": true
+    },
+    "breakfast": {
+      "standard": true,
+      "premium": true,
+      "vip": true
+    },
+    "lunch": {
+      "standard": false,
+      "premium": false,
+      "vip": true
+    },
+    "dinner": {
+      "standard": false,
+      "premium": true,
+      "vip": true
+    },
+    "vipArea": {
+      "standard": false,
+      "premium": false,
+      "vip": true
+    }
+  }
+}

@@ -1,0 +1,25 @@
+---
+import SectionStructure from '../../components/structures/SectionStructure.astro';
+import Card from '../How/Card.astro';
+---
+
+<SectionStructure idSection="how" sectionClasses="" wrapperClasses="w-full py-10 ">
+  <div class="flex flex-col text-center gap-5 lg:gap-10 items-center">
+    <h2 class="font-black text-orange text-[26px]/[37px] md:text-[32px]/[46px] lg:text-[px]/[px]">How does the Top 10 Casino Comparison work?</h2>
+
+    <article class="flex flex-col md:flex-row md:flex-wrap justify-center 2xl:justify-between gap-5">
+      <Card imgSrc="/public/assets/how/1.png" title="Browse around" description="Thoroughly explore the list of UK casino venues we have prepared for your next escape." />
+      <Card imgSrc="/public/assets/how/2.png" title="Check our FAQs " description="You will find out more details about the venues at the Frequently Asked Questions section." />
+      <Card imgSrc="/public/assets/how/3.png" title="Get in Touch" description="Make sure to provide us with your updated contact details to connect with you as soon as possible." />
+      <Card imgSrc="/public/assets/how/4.png" title="Discover the Deals" description="Obtain special offers from our expert agents that will contact you to tailor your needs." />
+      <Card imgSrc="/public/assets/how/5.png" title="Grab your Offer" description="Choose the best deal for you and lock down the best opportunity for your next casino visit." />
+      <a class="w-full" href="#top-10-section">
+        <button
+          class="bg-blueStrong w-full lg:w-full lg:max-w-[380px] md:w-[48%] px-3 py-4 text-white rounded-lg text-[20px]/[28px] font-medium md:text-[22px]/[31px] mt-5 hover:scale-95 transition-all duration-200 lg:text-[24px]/[34px]"
+        >
+          Check available slots!
+        </button>
+      </a>
+    </article>
+  </div>
+</SectionStructure>

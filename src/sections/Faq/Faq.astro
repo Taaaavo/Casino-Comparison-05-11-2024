@@ -1,0 +1,65 @@
+---
+import SectionStructure from '../../components/structures/SectionStructure.astro';
+import FaqItem from '../../sections/Faq/FaqItem.astro';
+
+const faqContent = [
+  {
+    question: 'How old should I be to enter a casino?',
+    answer:
+      'Free Slots are virtual slot machines that you can play for free, without wagering any real money. Those work similarly to brick-and-mortar or real casino slots, where a player spins the reels in hopes to achieve the betting line.',
+  },
+  {
+    question: 'What is a brick-and-mortar casino?',
+    answer: 'A brick-and-mortar casino is a real physical casino venue located in a real place.',
+  },
+  {
+    question: 'How to make the most of your offer listing?',
+    answer: 'By comparing each different venue features such as available games, amenities, customer reviews, and more you can make the most of available offers that meet your preferences.',
+  },
+  {
+    question: 'Can I book a casino visit through your site?',
+    answer: 'Unfortunately not, our platform is only designed for comparison purposes. Still, you can visit your casino’s website of choice to book it directly with the venue.',
+  },
+  {
+    question: 'What is the usual casino dress code? ',
+    answer:
+      'You can wear whatever you want to as long as it doesn’t bother other venue guests, and smart casual is the most common dress code in the casinos. However, we strongly suggest double checking if each venue requires formal attire to confirm their specific policies.',
+  },
+  {
+    question: 'Can I sign up for a player’s card?',
+    answer: 'Yes, you can do so at each casino’s rewards desk. These cards track your play and enable you to earn points, comps, and other benefits.',
+  },
+  {
+    question: 'How reliable is the information at Experience Matchup? ',
+    answer:
+      'Our website provides reliable and expert sources of information, and we update our ranking frequently to provide you with the most accurate casino details. However, we suggest verifying details directly with the venue before deciding your next visit.',
+  },
+  {
+    question: 'What sort of games do casinos offer?',
+    answer:
+      'Depending on each venue, you may play the old time classic table games like American Roulette, Blackjack, Poker, and electronic games and slots.  Feel free to ask our online support team to check games availability for each venue.',
+  },
+  // {
+  //   question: 'What kind of games can I play in social casinos?',
+  //   answer: `It usually takes 3-5 business days to get the product.
+  //   /
+  //   • jhdagjwdhgjawgd
+  //   /
+  //   • jhawgdjhawd
+  //   /
+  //   `.split('/'),
+  // },
+];
+---
+
+<!-- ? F.A.Q. section -->
+<SectionStructure idSection="faq" wrapperClasses="2xl:gap-16 items-center">
+  <h2 class="text-[#12446A] font-[600] text-[22px]/[29px] md:text-[24px]/[32px] lg:text-[26px]/[36px] 2xl:text-[32px]/[42px] text-center">Learn more about virtual social casinos here:</h2>
+
+  <div class="flex flex-wrap justify-between rounded-2xl max-w-[1200px] py-4 text-[#12446A]">
+    {faqContent.map(faqItem => <FaqItem question={faqItem.question} answer={faqItem.answer} />)}
+  </div>
+  <a href="#top-10-section" class="w-full max-w-[1200px] px-2 -mt-6 xl:-mt-10 2xl:-mt-16">
+    <button class="text-white border-[#12446A] ring-1 ring-[#12446A] bg-[#033860] py-2 px-8 rounded-md lg:text-lg hover:scale-105 transition-all duration-200 w-full">Grab a casino deal!</button>
+  </a>
+</SectionStructure>

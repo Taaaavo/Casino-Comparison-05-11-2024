@@ -1,0 +1,69 @@
+.question-section-container {
+  width: 100%;
+  max-width: 1080px;
+  align-items: center;
+  justify-content: center;
+}
+
+.accordion-item {
+  border: #9cb0bf 1px;
+  border-style: dashed;
+  border-radius: 10px;
+  width: 280px;
+  padding: 5px 0;
+  font-weight: 300;
+}
+
+@media (min-width: 768px) {
+  .accordion-item {
+    width: 430px;
+  }
+}
+
+.accordion-header {
+  padding: 10px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
+  position: relative;
+  border-width: 1px;
+}
+.accordion-header p {
+  max-width: 90%;
+}
+.accordion-content {
+  max-height: 0;
+  padding-inline: 10px;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.accordion-item.open .accordion-content {
+  max-height: 500px;
+}
+.arrow {
+  transition: transform 0.5s ease-out;
+}
+.accordion-item.open .arrow {
+  transform: rotate(180deg);
+}
+
+.accordion-item.open .arrow > svg > path {
+  fill: #12446a;
+}
+
+.accordion-header.clicked {
+  color: #12446a;
+  font-weight: 600;
+}
+.accordion-item.open .accordion-header p {
+  font-size: 20px;
+  line-height: 29px;
+  color: #031a6b;
+  font-weight: 600;
+}
+.arrow {
+  fill: #12446a;
+}

@@ -1,0 +1,98 @@
+---
+import { ViewTransitions, fade } from 'astro:transitions';
+import NavbarMobile from '../components/header/NavbarMobile.astro';
+import NavbarDesktop from '../components/header/NavbarDesktop.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/public/assets/navbar/logo.png" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <script defer src="/scripts/main.js"></script>
+    <script defer src="/scripts/navbar.js"></script>
+    <script defer src="/scripts/navbar.js"></script>
+
+    <!-- ? Scroll reveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+  </head>
+  <body class="overflow font-Brisbane" transition:animate={fade({ duration: '0.5s' })}>
+    <!-- ? navbar mobile -->
+    <NavbarMobile isLanding={false} />
+
+    <!-- ? Adobe Fonts -->
+    <link rel="stylesheet" href="https://use.typekit.net/exq0rwx.css">
+
+    <!-- ? Header section desktop-->
+    <NavbarDesktop isLanding={false} />
+    <slot />
+    <!-- ! Footer -->
+    <Footer />
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        // @ts-expect-error
+        ScrollReveal().reveal('.animate-hero', {
+          duration: 600,
+          origin: 'left',
+          distance: '30px',
+          easing: 'ease-in-out',
+          reset: false,
+        });
+      });
+    </script>
+  </body>
+</html>
+
+<style>
+  html,
+  body {
+    scroll-behavior: smooth;
+    font-family: "agenda-one", sans-serif;
+  }
+
+  #home-section {
+    min-height: max-content;
+  }
+  @media (min-width: 1524px) {
+    #home-section {
+      height: calc(100vh);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    #home-section {
+      height: calc(100vh);
+      min-height: 800px;
+    }
+  }
+
+  .overflow::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .overflow::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+
+  .overflow::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+  }
+
+  .overflow::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+</style>

@@ -1,0 +1,72 @@
+---
+import { z } from 'zod';
+import { HotelSchema } from '../../../d';
+import { OpenGallery, AvailableSlots, CompleteInfoModalButtons } from './HotelCardButtons';
+
+type Hotel = z.infer<typeof HotelSchema>;
+
+interface Props {
+  hotel: Hotel;
+  index: number;
+}
+
+const { hotel, index } = Astro.props;
+
+const completeStars = Math.floor(hotel.tripadvisor_ranking);
+const halfStar = Number.isInteger(hotel.tripadvisor_ranking) ? false : true;
+---
+
+<article class="bg-white flex flex-col gap-4 max-w-[350px] shadow-[0px_5px_30px_-1px_#00000024] rounded-2xl border-[1px] border-[#00000022] p-4 sm:p-6 lg:max-w-full lg:flex-row lg:gap-8">
+  <div class="flex justify-center relative lg:w-3/12">
+    <button class="absolute top-0 right-0 m-4 p-0.5 bg-white rounded-sm md:rounded-md">
+      <OpenGallery client:load hotelID={hotel.hotelID} />
+    </button>
+    <img src={hotel.mainImage} class="max-w-[600px] h-full w-full object-cover rounded-2xl" alt="" title="" />
+
+    {
+      hotel.ribon && (
+        <div class="absolute top-6 left-0 bg-[#96E6B3] py-3 text-[12px]/[13px] sm:text-[14px]/[20px] md:text-[16px]/[22px] lg:text-[18px]/[24px] font-medium rounded-tr-2xl rounded-br-2xl px-3 flex gap-4 justify-center max-w-[120px]">
+          <div>
+            <img src="public/assets/top/cards/star-blue.png" class="object-fill w-3 mt-1.5" alt="Star icon" />
+          </div>
+          <span class="text-[#020E3C] font-bold">{hotel.ribon_content}</span>
+        </div>
+      )
+    }
+  </div>
+
+  <div class="flex flex-col gap-3 lg:w-9/12">
+    <h5 class="font-extrabold text-[#033860] text-[20px]/[27px] md:text-[22px]/[32px]">
+      {index + 1}. {hotel.hotelName}
+    </h5>
+
+    <div class="flex flex-col sm:flex-row sm:justify-between lg:items-center gap-2 lg:gap-8">
+      <div class="flex gap-2">
+        {Array.from({ length: completeStars }, () => <img src="public/assets/top/cards/star.png" alt="Star" />)}
+        {halfStar && <img src="public/assets/top/cards/half-star.png" alt="Half star" />}
+      </div>
+    </div>
+
+    <div class="flex items-center gap-2 group relative">
+      <span class="text-[16px]/[18px] lg:text-[14px]/[16px] underline underline-offset-2 text-[#033860]">Reviews <b>{hotel.reviews}</b></span>
+
+      <div class="absolute hidden w-[200px] group-hover:flex right-0 top-6 flex-col items-center gap-2 bg-white shadow-2xl rounded-xl px-3 py-4">
+        <span class="text-xs md:text-sm font-bold">Rating & ranking from TRIPADVISOR</span>
+        <p class="text-xs md:text-sm">Last update: <span class="font-medium">{hotel.tripadvisor}</span></p>
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-4 text-black">
+      <p class="text-[14px]/[18px] md:text-[16px]/[25px] xl:text-[17px]/[27px]">{hotel.mainDescription}</p>
+      <p class="text-[15px]/[21px] font-medium italic">{hotel.secondaryDescription}</p>
+    </div>
+
+    <div class="flex flex-col gap-6 lg:flex-row lg:gap-4 xl:gap-8 lg:mt-8 w-full">
+      <CompleteInfoModalButtons client:load hotelID={hotel.hotelID} , typeButton="info" />
+
+      <CompleteInfoModalButtons client:load hotelID={hotel.hotelID} , typeButton="pricing" />
+
+      <AvailableSlots client:load hotelID={hotel.hotelID} />
+    </div>
+  </div>
+</article>
